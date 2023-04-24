@@ -577,3 +577,91 @@ html, body {
   color: #AEAEAE;
   margin: 8px;
 }
+
+.contactus {
+  margin-top: 85px;
+}
+.contactus > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 1138px;
+  height: 800px;
+}
+.contactus > .container .__contactbox {
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.contactus > .container .__contactbox > span {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  border-bottom: 1px solid #F3F2F2;
+  color: #F8F8F8;
+}
+.contactus > .container .__contactbox #commentForm .user {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+}
+.contactus > .container .__contactbox #commentForm .user .username, .contactus > .container .__contactbox #commentForm .user .useremail, .contactus > .container .__contactbox #commentForm .user .phonenumber, .contactus > .container .__contactbox #commentForm .user .company {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.contactus > .container .__contactbox #commentForm .user .username label, .contactus > .container .__contactbox #commentForm .user .useremail label, .contactus > .container .__contactbox #commentForm .user .phonenumber label, .contactus > .container .__contactbox #commentForm .user .company label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #F8F8F8;
+}
+.contactus > .container .__contactbox #commentForm .user .username input, .contactus > .container .__contactbox #commentForm .user .useremail input, .contactus > .container .__contactbox #commentForm .user .phonenumber input, .contactus > .container .__contactbox #commentForm .user .company input {
+  height: 50px;
+  padding-left: 20px;
+  background-color: #BBBBBB;
+  border: none;
+}
+.contactus > .container .__contactbox #commentForm .commentbox {
+  margin-top: 30px;
+}
+.contactus > .container .__contactbox #commentForm .commentbox > label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #F8F8F8;
+}
+.contactus > .container .__contactbox #commentForm .commentbox textarea {
+  width: 100%;
+  height: 140px;
+  background-color: #BBBBBB;
+  border: none;
+}
+.contactus > .container .__contactbox #commentForm .errorMessage {
+  color: #FF7373;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.contactus > .container .__contactbox #commentForm .rememberme {
+  margin-top: 10px;
+}
+.contactus > .container .__contactbox #commentForm .rememberme input {
+  margin-right: 10px;
+  background-color: #23262A;
+  border: none;
+}
+.contactus > .container .__contactbox #commentForm .rememberme label {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #F8F8F8;
+}
+.contactus > .container .__contactbox #commentForm button {
+  margin-top: 30px;
+}
+.contactus > .container .thankyou {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FF7373;
+}
