@@ -1,0 +1,41 @@
+.__collection {
+  margin-top: 60px;
+
+  & > .container {
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    & h3 {
+      font-size: $font-size-48;
+      font-weight: $font-weight-semibold;
+      margin: auto auto 30px auto;
+    }
+
+    & > ul {
+      display: flex;
+      color: $color-gray-2;
+
+      & li {
+        font-family: $font-roboto;
+        font-size: $font-size-16;
+        font-weight: $font-weight-regular;
+        list-style-type: none; 
+        margin: 0 0.7rem 0 0.7rem;
+      } 
+    }
+
+    & .products {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 270px);
+      grid-template-rows: repeat(2, 376px);
+      gap: 30px;
+    }
+
+    & .filter-container {
+      padding: 0;
+    }
+  }  
+}

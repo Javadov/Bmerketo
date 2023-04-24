@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="__navbar">
+    <div class="container">
+        <div class="brand">
+            <img src="/assets/images/icon.svg"/>
+            <a asp-action="index" asp-controller="home">bmerketo</a>
+        </div>
+        <div class="pages">
+            <a class="__pagelink" asp-action="index" asp-controller="home" end>HOME</a>
+            <a class="__pagelink" asp-action="index" asp-controller="products" end>PRODUCTS</a>
+            <a class="__pagelink" asp-action="index" asp-controller="contacts" end>CONTACT</a>
+
+            <button class="navicon" type="button" asp-action="index" asp-controller="search">
+                <i class="fa-regular fa-magnifying-glass"></i>
+            </button>
+
+            <a class="__login" asp-action="index" asp-controller="login" end>Login</a>
+
+            <button class="navicon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
+                <i class="fa-solid fa-shopping-cart"></i>
+                <span class="notification translate-middle badge rounded-pill"><!--{cartQuantity}--></span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+@import '../general/_variables.scss';
+
+.__navbar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+
+  & > .container {
+    height: 37px;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;   
+    
+    & .brand {
+      flex: 1;
+      font-size: $font-size-27;
+      font-weight: $font-weight-bold;
+      
+      & img {
+        width: 43px;
+        height: 37px;
+        margin-top: -10px;
+      }
+
+      & a {
+        text-decoration: none;
+        color: $color-theme-black;
+      }
+    }
+
+    & .pages {
+      display: flex;
+
+      & > a {
+        color: $color-theme-black;
+        font-size: $font-size-15;
+        text-decoration: none;
+        margin: 1rem 1.4rem 1rem 1.4rem;
+
+        &:hover{
+          color: $color-theme-red;
+          transition:  0.2s all ease-in-out;
+        }
+      }
+
+      & .__login { 
+        font-size: $font-size-16;
+        color: $color-gray-0;
+        margin: 1rem 0.7rem 1rem 0.7rem;
+      }
+
+      & .active {
+        color: $color-theme-red;
+      }
+
+      & .navicon {
+        border: none;
+        text-decoration: none;
+        color: $color-gray-0;
+        background-color: transparent;
+
+        & i {
+        font-size: $font-size-13;
+        }
+
+        &:hover {
+          background-color: none;
+
+          & i {
+            color: red;
+          }
+        }
+
+        & .notification {
+          background-color: $color-theme-red;
+          font-size: 10px;
+          position: absolute;
+          top: 2px;
+          right: -13px;
+        }
+      }
+    }
+  }
+}

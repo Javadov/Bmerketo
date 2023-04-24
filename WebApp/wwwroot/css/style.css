@@ -1,0 +1,579 @@
+﻿@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700&display=swap");
+html, body {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif, serif;
+  font-weight: 400;
+  color: #222529;
+}
+
+.j-c {
+  justify-content: space-between;
+}
+
+.a-i {
+  align-items: center;
+}
+
+.container,
+.container-fluid,
+.container-xxxl,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-sm, .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container-md, .container-sm, .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container-lg, .container-md, .container-sm, .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1175px;
+  }
+}
+/*----------------------------- Extra -----------------------------*/
+.button-red {
+  display: inline-block;
+  position: relative;
+  background: #FF7373;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.button-red::before, .button-red::after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: white;
+  margin: 10px;
+}
+.button-red:hover::before, .button-red:hover::after {
+  width: 89.2%;
+}
+.button-red::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-red::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.button-red:hover span::before, .button-red:hover span::after {
+  height: 66.2%;
+}
+.button-red span {
+  display: block;
+  padding: 15.5px 44px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.button-red span::before, .button-red span::after {
+  content: "";
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: white;
+  margin: 10px;
+}
+.button-red span::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-red span::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.button-blck {
+  display: inline-block;
+  position: relative;
+  background: #222529;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.button-blck::before, .button-blck::after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: white;
+  margin: 10px;
+}
+.button-blck:hover::before, .button-blck:hover::after {
+  width: 89.2%;
+}
+.button-blck::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-blck::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.button-blck:hover span::before, .button-blck:hover span::after {
+  height: 66.2%;
+}
+.button-blck span {
+  display: block;
+  padding: 15.5px 44px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.button-blck span::before, .button-blck span::after {
+  content: "";
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: white;
+  margin: 10px;
+}
+.button-blck span::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-blck span::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.button-login {
+  display: inline-block;
+  position: relative;
+  background: #222529;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.button-login::before, .button-login::after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: white;
+  margin: 5px;
+}
+.button-login:hover::before, .button-login:hover::after {
+  width: 97.4%;
+}
+.button-login::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-login::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.button-login:hover span::before, .button-login:hover span::after {
+  height: 75%;
+}
+.button-login span {
+  display: block;
+  padding: 5px 44px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.button-login span::before, .button-login span::after {
+  content: "";
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: white;
+  margin: 5px;
+}
+.button-login span::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-login span::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.button-login:hover {
+  background-color: rgb(119, 45, 45);
+  color: white;
+}
+
+.button-white {
+  display: inline-block;
+  position: relative;
+  background: white;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.button-white::before, .button-white::after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #222529;
+  margin: 10px;
+}
+.button-white:hover::before, .button-white:hover::after {
+  width: 89.2%;
+}
+.button-white::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-white::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+.button-white:hover span::before, .button-white:hover span::after {
+  height: 66.2%;
+}
+.button-white span {
+  display: block;
+  color: #222529;
+  padding: 15.5px 44px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.button-white span::before, .button-white span::after {
+  content: "";
+  width: 2px;
+  height: 20px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: #222529;
+  margin: 10px;
+}
+.button-white span::after {
+  right: 0;
+  bottom: 0;
+  transition-duration: 0.4s;
+}
+.button-white span::before {
+  left: 0;
+  top: 0;
+  transition-duration: 0.4s;
+}
+
+.breadcrumb {
+  display: flex;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 30px 0;
+}
+.breadcrumb > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  width: 1110px;
+}
+.breadcrumb > .container .list {
+  list-style: none;
+  margin-left: 0;
+}
+.breadcrumb > .container .list li {
+  display: inline-block;
+}
+.breadcrumb > .container .list li a {
+  text-decoration: none;
+  color: #222529;
+  margin-left: -32px;
+  transition: all 0.2s ease-in-out;
+}
+.breadcrumb > .container .list li a:hover {
+  color: #FF7373;
+}
+.breadcrumb > .container .list li a i {
+  margin-right: 5px;
+}
+.breadcrumb > .container .list li + li::before {
+  content: "> ";
+  font-weight: 500;
+  margin: 0 5px 0 5px;
+}
+
+.map {
+  width: 100%;
+  height: 386px;
+}
+
+.cart-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transform: translateX(-200%);
+  transition: 0.5s ease-out;
+}
+
+.cart-modal {
+  height: 100vh;
+  width: 25%;
+  background-color: rgb(50, 50, 50);
+  float: right;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#close-btn {
+  font-size: 1.5rem;
+  float: right;
+  margin: 0.5em 2em 0 0;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-is-empty {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+  display: none;
+}
+
+.total {
+  text-align: center;
+  margin: 2em 0 2em 0;
+  /*   display: none; */
+}
+
+.cart-total {
+  color: white;
+}
+
+.total-price {
+  color: white;
+  font-size: 2rem;
+  display: block;
+}
+
+.purchase-btn {
+  font-size: 1rem;
+  font-weight: bolder;
+  background-color: green;
+  color: white;
+  padding: 1em 2em;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 2em 0 1em 0;
+}
+
+.product-rows {
+  margin-top: 3em;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+}
+
+.cart-image {
+  width: 10rem;
+  margin: 1em;
+}
+
+.cart-price {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.product-quantity {
+  width: 4rem;
+  font-size: 2rem;
+  margin-left: 3rem;
+}
+
+.remove-btn {
+  padding: 1em 2em;
+  background-color: red;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 3rem;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.remove-btn:active {
+  transform: translateY(5px);
+}
+
+.__noway {
+  background-image: url(https://media.giphy.com/media/l2Je3CjIvDr0X2yn6/source.gif);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  color: #FFFFFF;
+  font-size: 16px;
+  user-select: none;
+}
+.__noway h1 {
+  color: transparent;
+  font-size: 4rem;
+  margin: 0;
+  -webkit-text-stroke: 2px white;
+}
+
+.__navbar {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+.__navbar > .container {
+  height: 37px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.__navbar > .container .brand {
+  flex: 1;
+  font-size: 1.6875rem;
+  font-weight: 700;
+}
+.__navbar > .container .brand img {
+  width: 43px;
+  height: 37px;
+  margin-top: -10px;
+}
+.__navbar > .container .brand a {
+  text-decoration: none;
+  color: #222529;
+}
+.__navbar > .container .pages {
+  display: flex;
+}
+.__navbar > .container .pages > a {
+  color: #222529;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  margin: 1rem 1.4rem 1rem 1.4rem;
+}
+.__navbar > .container .pages > a:hover {
+  color: #FF7373;
+  transition: 0.2s all ease-in-out;
+}
+.__navbar > .container .pages .__login {
+  font-size: 1rem;
+  color: #AEAEAE;
+  margin: 1rem 0.7rem 1rem 0.7rem;
+}
+.__navbar > .container .pages .active {
+  color: #FF7373;
+}
+.__navbar > .container .pages .navicon {
+  border: none;
+  text-decoration: none;
+  color: #AEAEAE;
+  background-color: transparent;
+}
+.__navbar > .container .pages .navicon i {
+  font-size: 0.8125rem;
+}
+.__navbar > .container .pages .navicon:hover {
+  background-color: none;
+}
+.__navbar > .container .pages .navicon:hover i {
+  color: red;
+}
+.__navbar > .container .pages .navicon .notification {
+  background-color: #FF7373;
+  font-size: 10px;
+  position: absolute;
+  top: 2px;
+  right: -13px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #292929;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer a {
+  color: #AEAEAE;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 8px;
+}
+.footer p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #AEAEAE;
+  margin: 8px;
+}
