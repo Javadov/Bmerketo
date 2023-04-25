@@ -1,5 +1,4 @@
-﻿@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap");
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700&display=swap");
 html, body {
   font-size: 1rem;
@@ -310,20 +309,29 @@ html, body {
   font-size: 1rem;
   font-weight: 500;
   margin: 0 0 30px 0;
+  height: 300px;
+  background-size: cover;
+  background-image: url(https://s7template.com/tf/bmarketo/assets/img/breadcrumb/1.png);
 }
 .breadcrumb > .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: left;
-  width: 1110px;
+  justify-content: center;
+  align-items: center;
+}
+.breadcrumb > .container h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
 }
 .breadcrumb > .container .list {
   list-style: none;
-  margin-left: 0;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 .breadcrumb > .container .list li {
   display: inline-block;
+  color: #292929;
 }
 .breadcrumb > .container .list li a {
   text-decoration: none;
@@ -334,18 +342,17 @@ html, body {
 .breadcrumb > .container .list li a:hover {
   color: #FF7373;
 }
-.breadcrumb > .container .list li a i {
-  margin-right: 5px;
-}
 .breadcrumb > .container .list li + li::before {
-  content: "> ";
+  content: ".";
   font-weight: 500;
   margin: 0 5px 0 5px;
 }
 
 .map {
   width: 100%;
-  height: 386px;
+  height: 825px;
+  border: 1px solid #616365;
+  margin-bottom: -8px;
 }
 
 .cart-modal-overlay {
@@ -554,6 +561,70 @@ html, body {
   right: -13px;
 }
 
+.__showcase {
+  display: flex;
+  background-color: #F3F2F2;
+  height: 647px;
+  justify-content: center;
+}
+.__showcase > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.__showcase > .container .__showcasetext {
+  text-align: left;
+}
+.__showcase > .container .__showcasetext p {
+  font-size: 1.125rem;
+}
+.__showcase > .container .__showcasetext h1 {
+  font-size: 3.75rem;
+  font-weight: 700;
+}
+.__showcase > .container .__showcaseimg {
+  text-align: right;
+}
+.__showcase > .container .__showcaseimg img {
+  width: 460px;
+}
+
+.__collection {
+  margin-top: 60px;
+}
+.__collection > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.__collection > .container h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: auto auto 30px auto;
+}
+.__collection > .container > ul {
+  display: flex;
+  color: #636363;
+}
+.__collection > .container > ul li {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  list-style-type: none;
+  margin: 0 0.7rem 0 0.7rem;
+}
+.__collection > .container .products {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  grid-template-rows: repeat(2, 376px);
+  gap: 30px;
+}
+.__collection > .container .filter-container {
+  padding: 0;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -576,6 +647,222 @@ html, body {
   font-weight: 400;
   color: #AEAEAE;
   margin: 8px;
+}
+
+.__notfound {
+  height: 100%;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  align-items: center;
+  margin-top: 100px;
+}
+.__notfound section:first-of-type {
+  display: flex;
+  justify-content: center;
+}
+.__notfound section:first-of-type img {
+  width: 90%;
+}
+.__notfound section:last-of-type {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+.__notfound section:last-of-type h1 {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #333333;
+}
+.__notfound section:last-of-type h5 {
+  font-size: 35px;
+  line-height: 50px;
+  margin-bottom: 0;
+}
+.__notfound section:last-of-type p {
+  font-size: 16px;
+  width: 80%;
+  line-height: 25px;
+}
+.__notfound section:last-of-type a {
+  width: fit-content;
+  text-decoration: none;
+  color: white;
+}
+.__notfound section:last-of-type a:hover::before, .__notfound section:last-of-type a:hover::after {
+  width: 91.5%;
+}
+.__notfound section:last-of-type a:hover span::before, .__notfound section:last-of-type a:hover span::after {
+  height: 63.2%;
+}
+
+@media only screen and (max-width: 375px) {
+  body main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 30px;
+  }
+  body main section:first-of-type img {
+    width: 80%;
+  }
+}
+.__loginsection {
+  margin-top: 85px;
+}
+.__loginsection > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 1138px;
+  height: 800px;
+}
+.__loginsection > .container .__contactbox {
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.__loginsection > .container .__contactbox > span {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  border-bottom: 1px solid #F3F2F2;
+  color: #636363;
+}
+.__loginsection > .container .__contactbox #loginForm .useremail, .__loginsection > .container .__contactbox #loginForm .password {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 40px;
+}
+.__loginsection > .container .__contactbox #loginForm .useremail .__useremail, .__loginsection > .container .__contactbox #loginForm .password .__useremail {
+  display: flex;
+  gap: 30px;
+}
+.__loginsection > .container .__contactbox #loginForm .useremail .__password, .__loginsection > .container .__contactbox #loginForm .password .__password {
+  display: flex;
+  justify-content: space-between;
+}
+.__loginsection > .container .__contactbox #loginForm .useremail label, .__loginsection > .container .__contactbox #loginForm .password label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #636363;
+}
+.__loginsection > .container .__contactbox #loginForm .useremail input, .__loginsection > .container .__contactbox #loginForm .password input {
+  height: 50px;
+  padding-left: 20px;
+  background-color: #FAFAFA;
+  border: none;
+}
+.__loginsection > .container .__contactbox #loginForm .useremail a, .__loginsection > .container .__contactbox #loginForm .password a {
+  color: red;
+  text-decoration: none;
+}
+.__loginsection > .container .__contactbox #loginForm .errorMessage {
+  color: #FF7373;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.__loginsection > .container .__contactbox #loginForm .rememberme {
+  margin-top: 10px;
+}
+.__loginsection > .container .__contactbox #loginForm .rememberme input {
+  margin-right: 10px;
+  background-color: #C8C8C8;
+  border: none;
+}
+.__loginsection > .container .__contactbox #loginForm .rememberme label {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #636363;
+}
+.__loginsection > .container .__contactbox #loginForm button {
+  margin-top: 30px;
+}
+.__loginsection > .container .thankyou {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FF7373;
+}
+
+.__registersection {
+  margin-top: 85px;
+}
+.__registersection > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 1138px;
+}
+.__registersection > .container .__contactbox {
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.__registersection > .container .__contactbox > span {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  border-bottom: 1px solid #F3F2F2;
+  color: #636363;
+}
+.__registersection > .container .__contactbox #registerForm .__input {
+  display: flex;
+  gap: 30px;
+}
+.__registersection > .container .__contactbox #registerForm .userdetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 40px;
+}
+.__registersection > .container .__contactbox #registerForm .userdetails label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #636363;
+}
+.__registersection > .container .__contactbox #registerForm .userdetails input {
+  display: grid;
+  width: 100%;
+  height: 50px;
+  padding-left: 20px;
+  background-color: #FAFAFA;
+  border: none;
+}
+.__registersection > .container .__contactbox #registerForm .userdetails a {
+  color: red;
+  text-decoration: none;
+}
+.__registersection > .container .__contactbox #registerForm .errorMessage {
+  color: #FF7373;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.__registersection > .container .__contactbox #registerForm .rememberme {
+  margin-top: 10px;
+}
+.__registersection > .container .__contactbox #registerForm .rememberme input {
+  margin-right: 10px;
+  background-color: #C8C8C8;
+  border: none;
+}
+.__registersection > .container .__contactbox #registerForm .rememberme label {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #636363;
+}
+.__registersection > .container .__contactbox #registerForm button {
+  margin-top: 30px;
+}
+.__registersection > .container .thankyou {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FF7373;
 }
 
 .contactus {

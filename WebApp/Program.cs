@@ -4,8 +4,9 @@ using WebApp.Models.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Identity")));
+builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("bmerketo")));
 //builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Data")));
+
 
 var app = builder.Build();
 app.UseHsts();

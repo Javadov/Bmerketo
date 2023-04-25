@@ -8,5 +8,5 @@ public class AddressEntity
     public string StreetName { get; set; } = null!;
     public string PostalCode { get; set; } = null!;
     public string City { get; set; } = null!;
-    public ICollection<AppUser> Users { get; set; } = new HashSet<AppUser>();
+    public ICollection<UserAddressEntity> Users { get; set; } = new HashSet<UserAddressEntity>();
 }

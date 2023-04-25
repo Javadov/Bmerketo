@@ -13,4 +13,5 @@ public class IdentityContext : IdentityDbContext<AppUser>
 
     public DbSet<AddressEntity> AspNetAdresses { get; set; }
     public DbSet<UserAddressEntity> AspNetUsersAddresses { get; set; }
+
 }

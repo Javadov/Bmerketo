@@ -1,0 +1,30 @@
+﻿<section class="__collection">
+    <div class="container">
+        <h3>Best Collection</h3>
+        <ul>
+            <li onClick={handleFilterKeyChange("*")}>All</li>  ⁄
+            <li onClick={handleFilterKeyChange("Bags")}>Bags</li>  ⁄
+            <li onClick={handleFilterKeyChange("Watchs")}>Dress</li>  ⁄
+            <li onClick={handleFilterKeyChange("Dresses")}>Decoration</li>  ⁄
+            <li onClick={handleFilterKeyChange("Sets")}>Essentials</li>  ⁄
+            <li onClick={handleFilterKeyChange("Jackets")}>Interior</li>  ⁄
+            <li onClick={handleFilterKeyChange("T-shirts")}>Laptop</li>  ⁄
+            <li onClick={handleFilterKeyChange("vege")}>Mobile</li>  ⁄
+            <li onClick={handleFilterKeyChange("fruit")}>Beauty</li>
+        </ul>
+
+        <ul class="filter-container products">
+            {
+            products.allProducts.slice(0, limit).map(product => (
+            <ProductCard key={product._id} product={product} />))
+            }
+        </ul>
+
+        <div>
+            {
+            limit < products.allProducts.length && (<button onClick={handleLoadMore}>Load More</button>)
+            }
+        </div>
+
+    </div>
+</section>

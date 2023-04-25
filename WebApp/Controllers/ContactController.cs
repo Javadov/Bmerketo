@@ -11,7 +11,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(ContactFormViewModel viewModel)
+        public IActionResult Index(ContactFormViewModel contactForm)
         {
             return View();
         }

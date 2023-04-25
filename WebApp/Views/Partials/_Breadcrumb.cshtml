@@ -1,0 +1,13 @@
+﻿@model BreadCrumbModel
+
+<div class="breadcrumb">
+    <div class="container">
+        <h2>
+            @Url.Action("Index", "Home")
+        </h2>
+        <ul class='list'>
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li>{currentPage}</li>
+        </ul>
+    </div>
+</div>

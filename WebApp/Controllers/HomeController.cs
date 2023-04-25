@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace WebApp.Controllers
@@ -16,6 +17,13 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
+        public ActionResult NotFound()
+        {
+            Response.StatusCode = 404;
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {

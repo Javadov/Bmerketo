@@ -1,0 +1,43 @@
+﻿@model UserLoginViewModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<section class="__loginsection">
+    <div class="container">
+        <div class="__contactbox">
+            <span>Please Login to Your Account</span>
+            <form id='loginForm' method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="useremail">
+                    <div class="__useremail">
+                        <label asp-for="Email">Your Email *</label>
+                        <a href="/register">Don't have an Account yet?</a>
+                    </div>
+                    
+                    <input asp-for="Email" />
+                    <small class="text-danger"><span asp-validation-for="Email"></span></small>
+                </div>
+
+                <div class="password">
+                    <div class="__password">
+                        <label asp-for="Password">Password *</label>
+                        <a href="/register">Forgot Your Password?</a>
+                    </div>
+                    
+                    <input asp-for="Password" />
+                </div>
+
+                <div class="rememberme">
+                    <input asp-for="RememberMe" type="checkbox" />
+                    <label asp-for="RememberMe">Please keep me logged in</label>
+                </div>
+                <div>
+                    <button class="button-red" type="submit"><span>Submit</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

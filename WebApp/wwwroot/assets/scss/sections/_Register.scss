@@ -1,6 +1,6 @@
-@import '../general/_variables.scss';
+﻿@import '../general/_variables.scss';
 
-.__loginsection {
+.__registersection {
     margin-top: 85px;
 
     & > .container {
@@ -8,7 +8,6 @@
         flex-direction: column;
         align-items: left;
         width: 1138px;
-        height: 800px;
 
         & .__contactbox {
             padding: 40px;
@@ -23,23 +22,18 @@
                 color: $color-gray-2;
             }
 
-            & #loginForm {
-                & .useremail,
-                & .password {
+            & #registerForm {
+
+                & .__input {
+                    display: flex;
+                    gap: 30px;
+                }
+
+                & .userdetails {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
                     margin-top: 40px;
-
-                    & .__useremail {
-                        display: flex;
-                        gap: 30px;
-                    }
-
-                    & .__password {
-                        display: flex;
-                        justify-content: space-between;
-                    }
 
                     & label {
                         font-family: $font-roboto;
@@ -49,6 +43,8 @@
                     }
 
                     & input {
+                        display: grid;
+                        width: 100%;
                         height: 50px;
                         padding-left: 20px;
                         background-color: $color-gray-5;
