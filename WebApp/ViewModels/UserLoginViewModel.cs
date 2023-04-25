@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WebApp.Models.Identity;
 
-namespace WebApp.Models;
+namespace WebApp.ViewModels;
 
-public class UserLoginModel
+public class UserLoginViewModel
 {
     [Display(Name = "E-mail Address")]
     [DataType(DataType.EmailAddress)]
@@ -16,7 +16,7 @@ public class UserLoginModel
     [Display(Name = "Keep me logged in")]
     public bool RememberMe { get; set; }
 
-    public static implicit operator AppUser(UserLoginModel model)
+    public static implicit operator AppUser(UserLoginViewModel model)
     {
         return new AppUser
         {

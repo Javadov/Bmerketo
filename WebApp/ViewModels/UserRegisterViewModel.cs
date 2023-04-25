@@ -2,42 +2,35 @@
 using WebApp.Models.Entities;
 using WebApp.Models.Identity;
 
-namespace WebApp.Models;
+namespace WebApp.ViewModels;
 
-public class UserRegisterModel
+public class UserRegisterViewModel
 {
     [Display(Name = "First Name")]
     [Required(ErrorMessage = "You must enter a first name.")]
     public string FirstName { get; set; } = null!;
 
-
     [Display(Name = "Last Name")]
     [Required(ErrorMessage = "You must enter a last name.")]
     public string LastName { get; set; } = null!;
-
 
     [Display(Name = "Street Name")]
     [Required(ErrorMessage = "You must enter a street name.")]
     public string StreetName { get; set; } = null!;
 
-
     [Display(Name = "Postal Code")]
     [Required(ErrorMessage = "You must enter a postal code.")]
     public string PostalCode { get; set; } = null!;
-
 
     [Display(Name = "City")]
     [Required(ErrorMessage = "You must enter a city.")]
     public string City { get; set; } = null!;
 
-
     [Display(Name = "Mobile")]
     public string? Mobile { get; set; }
 
-
     [Display(Name = "Company")]
     public string? CompanyName { get; set; }
-
 
     [Display(Name = "E-mail Address")]
     [Required(ErrorMessage = "You must enter an e-mail address.")]
@@ -45,13 +38,11 @@ public class UserRegisterModel
     [DataType(DataType.EmailAddress)]
     public string Email { get; set; } = null!;
 
-
     [Display(Name = "Password")]
     [Required(ErrorMessage = "You must enter a password.")]
     [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$", ErrorMessage = "Your must enter a valid password.")]
     [DataType(DataType.Password)]
     public string Password { get; set; } = null!;
-
 
     [Display(Name = "Confirm Password")]
     [Required(ErrorMessage = "You must confirm your password.")]
@@ -61,13 +52,13 @@ public class UserRegisterModel
 
 
     [Display(Name = "Upload Profile Image")]
-    public IFormFile? ProfileImageFile { get; set; }
-
+    [DataType(DataType.Upload)]
+    public IFormFile? ProfilePicture { get; set; }
 
     [Display(Name = "I have read and accepts the user terms and agreements")]
     public bool TermsAndAgreements { get; set; }
 
-    public static implicit operator AppUser(UserRegisterModel model)
+    public static implicit operator AppUser(UserRegisterViewModel model)
     {
         return new AppUser
         {
@@ -79,7 +70,7 @@ public class UserRegisterModel
         };
     }
 
-    public static implicit operator AddressEntity(UserRegisterModel model)
+    public static implicit operator AddressEntity(UserRegisterViewModel model)
     {
         return new AddressEntity
         {

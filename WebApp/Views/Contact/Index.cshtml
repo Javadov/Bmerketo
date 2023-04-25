@@ -1,42 +1,44 @@
-﻿@{
-    ViewData["Title"] = "Contact us";
-}
+﻿@model ContactFormViewModel
+@{ViewData["Title"] = "Contact us";}
 
 <section class="contactus">
     <div class="container">
         <div class="__contactbox">
             <span>Write something</span>
-            <form id='commentForm' onSubmit={handleSubmit} noValidate>
+            <form id='commentForm' method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                 <div class="user">
                     <div class="username">
-                        <label id="name">Your Name *</label>
-                        <input id="name" />
-                        <span class="errorMessage">{errors.name}</span>
+                        <label asp-for="Name">Your Name *</label>
+                        <input asp-for="Name" />
+                        <small class="text-danger"><span asp-validation-for="Name"></span></small>
                     </div>
                     <div class="useremail">
-                        <label id="email">Your Email *</label>
-                        <input id="email"  />
-                        <span class="errorMessage">{errors.email}</span>
+                        <label asp-for="Email">Your Email *</label>
+                        <input asp-for="Email"  />
+                        <small class="text-danger"><span asp-validation-for="Email"></span></small>
                     </div>
                 </div>
                 <div class="user">
                     <div class="phonenumber">
-                        <label id="phonenumber">Phone Number</label>
-                        <input id="phonenumber"  />
+                        <label asp-for="PhoneNumber">Phone Number</label>
+                        <input asp-for="PhoneNumber" />
                     </div>
                     <div class="company">
-                        <label id="company">Company (optional)</label>
-                        <input id="company"  />
+                        <label asp-for="Company">Company (optional)</label>
+                        <input asp-for="Company" />
                     </div>
                 </div>
                 <div class="commentbox">
-                    <label id="comment">Something write *</label>
-                    <textarea id="comment" ></textarea>
-                    <div class="errorMessage">{errors.comment}</div>
+                    <label asp-for="Comment">Something write *</label>
+                    <textarea asp-for="Comment"></textarea>
+                    <small class="text-danger"><span asp-validation-for="Comment"></span></small>
                 </div>
                 <div class="rememberme">
-                    <input id="rememberme" type="checkbox" />
-                    <label id="rememberme">Save my name, email, and website in this browser for the next time I comment.</label>
+                    <input asp-for="RememberMe" type="checkbox" />
+                    <label asp-for="RememberMe">Save my name, email, and website in this browser for the next time I comment.</label>
                 </div>
                 <div>
                     <button class="button-red" type="submit"><span>Submit</span></button>
