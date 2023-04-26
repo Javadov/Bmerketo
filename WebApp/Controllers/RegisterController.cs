@@ -19,16 +19,17 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(UserRegisterViewModel userRegister)
+        public async Task<IActionResult> Index(UserRegisterViewModel model)
         {
             if (ModelState.IsValid) 
-            { 
-                if (await _auth.RegisterAsync(userRegister))
-                    return RedirectToAction("Index");
+            {
+                if (await _auth.ExistUserAsync(x => x.Email == model.Email))
+                    ModelState.AddModelError("", "Email is already registered.");
 
-                ModelState.AddModelError("", "Email is already registered.");
+                if (await _auth.RegisterAsync(model))
+                    return RedirectToAction("Index");                
             }
-            return View(userRegister);
+            return View(model);
         }
     }
 }

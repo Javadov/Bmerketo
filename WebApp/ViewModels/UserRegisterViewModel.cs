@@ -56,7 +56,7 @@ public class UserRegisterViewModel
     public IFormFile? ProfilePicture { get; set; }
 
     [Display(Name = "I have read and accepts the user terms and agreements")]
-    public bool TermsAndAgreements { get; set; }
+    public bool TermsAndAgreements { get; set; } = false;
 
     public static implicit operator AppUser(UserRegisterViewModel model)
     {
@@ -66,7 +66,8 @@ public class UserRegisterViewModel
             FirstName = model.FirstName,
             LastName = model.LastName,
             Email = model.Email,
-            PhoneNumber = model.Mobile
+            PhoneNumber = model.Mobile,
+            CompanyName = model.CompanyName,
         };
     }
 
