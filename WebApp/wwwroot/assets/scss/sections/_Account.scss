@@ -1,0 +1,47 @@
+﻿@import '../general/_variables.scss';
+
+.__account {
+    margin-top: 85px;
+
+    & > .container {
+        width: 1138px;
+        height: 800px;
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+        & .__account_header {
+            display: flex;
+            justify-content: space-between;
+
+            & .__header_left {
+                flex: 1;
+            }
+
+            & .__header_right {
+                flex: 4;
+                text-align: right;
+
+                & > span {
+                    font-family: $font-roboto;
+                    font-size: $font-size-16;
+                    font-weight: $font-weight-regular;
+                    border-bottom: 1px solid $color-gray-1;
+                    color: $color-gray-2;
+                }
+
+                & > a {
+                    font-family: $font-roboto;
+                    font-size: $font-size-18;
+                    font-weight: $font-weight-bold;
+                    border-bottom: 1px solid $color-gray-1;
+                    color: $color-gray-2;
+                    text-decoration: none;
+                    border: 1px solid $color-dark;
+                    margin: 0 10px 0 10px;
+                    padding: 0 10px 0 10px;
+                }
+            }
+        }
+    }
+}

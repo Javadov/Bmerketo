@@ -15,13 +15,17 @@
 
             @if(signInManager.IsSignedIn(User))
             {
-                <a class="__login" asp-action="index" asp-controller="Account" end>My Account</a>
+                <a class="__login" asp-action="index" asp-controller="account" end><i class="fa-solid fa-user"></i></a>
             }
             else
             {
                 <a class="__login" asp-action="index" asp-controller="login" end>Login</a>
-            }           
+            }
 
+            @if (signInManager.IsSignedIn(User) && User.IsInRole("admin"))
+            {
+                <a class="__login" asp-action="index" asp-controller="admin" end><i class="fa-solid fa-crown"></i></a>
+            }
             <button class="navicon" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
                 <i class="fa-solid fa-shopping-cart"></i>
                 <span class="notification translate-middle badge rounded-pill"><!--{cartQuantity}--></span>

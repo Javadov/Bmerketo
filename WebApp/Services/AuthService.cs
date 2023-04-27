@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Net.WebSockets;
+using System.Security.Claims;
 using WebApp.Models.Contexts;
 using WebApp.Models.Identity;
 using WebApp.ViewModels;
@@ -14,12 +15,14 @@ public class AuthService
     private readonly UserManager<AppUser> _userManager;
     private readonly SignInManager<AppUser> _signInManager;
     private readonly AddressService _addressService;
+    private readonly SeedService _seedService;
 
-    public AuthService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager)
+    public AuthService(UserManager<AppUser> userManager, AddressService addressService, SignInManager<AppUser> signInManager, SeedService seedService)
     {
         _userManager = userManager;
         _addressService = addressService;
         _signInManager = signInManager;
+        _seedService = seedService;
     }
 
     public async Task<bool> ExistUserAsync(Expression<Func<AppUser, bool>> expression)
@@ -31,9 +34,19 @@ public class AuthService
     {
         try
         {
+            await _seedService.SeedRoles();
+            var roleName = "user";
+
+            if (!await _userManager.Users.AnyAsync())
+                roleName = "admin";
+
             AppUser appUser = model;
 
+
             var result = await _userManager.CreateAsync(appUser, model.Password);
+
+            await _userManager.AddToRoleAsync(appUser, roleName);
+
             if (result.Succeeded) 
             {
                 var address = await _addressService.GetorCreateAsync(model);
@@ -42,7 +55,7 @@ public class AuthService
                     await _addressService.AddAddressAsync(appUser, address);
                     return true;
                 }
-            }
+            }           
 
             return false;
         }
@@ -59,5 +72,11 @@ public class AuthService
         }
 
         return false;
+    }
+
+    public async Task<bool> LogoutAsync(ClaimsPrincipal user)
+    {
+        await _signInManager.SignOutAsync();
+        return _signInManager.IsSignedIn(user);
     }
 }

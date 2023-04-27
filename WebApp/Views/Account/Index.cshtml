@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "My Account";
+}
+
+<section class="__account">
+    <div class="container">
+        <div class="__account_header">
+            <div class="__header_left">
+                <a asp-action="index" asp-asp-controller="account">My Account</a>
+            </div>
+            <div class="__header_right">
+                <span>You are logged in as <b>@User.Identity?.Name</b></span> <a asp-action="Logout" asp-asp-controller="home">Logout</a>
+            </div>
+        </div>
+    </div>
+</section>
