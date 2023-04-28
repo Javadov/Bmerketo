@@ -18,13 +18,6 @@ namespace WebApp.Controllers
             return View();
         }
 
-        public ActionResult NotFound()
-        {
-            Response.StatusCode = 404;
-            return View();
-        }
-
-
         public IActionResult Privacy()
         {
             return View();

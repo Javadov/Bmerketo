@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<div class="__admin">
+    <div class="container">
+        <div class="__manageproducts">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">GET PRODUCTS</a>
+        </div>
+        <div class="__productslist collapse" id="collapseExample">
+            <div class="__rubrik">
+                <span class="__smallbox">ID</span>
+                <span class="__mediumbox">Tag</span>
+                <span class="__mediumbox">Category</span>
+                <span class="__largebox">Product Name</span>
+                <span class="__largebox">Product Image</span>
+                <span class="__smallbox">Rating</span>
+                <span class="__smallbox">Price</span>
+                <span class="__mediumbox">Description</span>
+            </div>
+
+            {
+            products.map( product => <ProductsList key={product._id} product={product} />)
+            }
+        </div>        
+    </div>
+</div>
