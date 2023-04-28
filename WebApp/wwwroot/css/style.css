@@ -960,14 +960,14 @@ html, body {
   border: 1px solid black;
 }
 
-.__productslist {
+.__list {
   display: grid;
   margin-top: 10px;
 }
-.__productslist .__rubrik {
+.__list .__rubrik {
   display: flex;
 }
-.__productslist .__rubrik span {
+.__list .__rubrik span {
   font-size: 1rem;
   font-weight: bold;
   background-color: #FF7373;
@@ -979,36 +979,34 @@ html, body {
   height: 35px;
   padding: 5px;
 }
-.__productslist .__rubrik .__smallbox {
+.__list .__rubrik .__smallbox {
   width: 60px;
 }
-.__productslist .__rubrik .__mediumbox {
+.__list .__rubrik .__mediumbox {
   width: 100px;
 }
-.__productslist .__rubrik .__largebox {
+.__list .__rubrik .__largebox {
   width: 290px;
 }
-.__productslist > .container {
-  width: 1110px;
+.__list .__users {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-.__productslist > .container .__products {
+.__list .__users .__usercard {
   display: flex;
   justify-content: space-between;
   position: relative;
 }
-.__productslist > .container .__products .__smallbox {
+.__list .__users .__usercard .__smallbox {
   width: 60px;
 }
-.__productslist > .container .__products .__mediumbox {
+.__list .__users .__usercard .__mediumbox {
   width: 100px;
 }
-.__productslist > .container .__products .__largebox {
+.__list .__users .__usercard .__largebox {
   width: 290px;
 }
-.__productslist > .container .__products span {
+.__list .__users .__usercard span {
   font-size: 1rem;
   font-weight: bold;
   background-color: #636363;
@@ -1020,10 +1018,10 @@ html, body {
   height: 35px;
   padding: 5px;
 }
-.__productslist > .container .__products span img {
+.__list .__users .__usercard span img {
   width: 100px;
 }
-.__productslist > .container .__products span p {
+.__list .__users .__usercard span p {
   display: none;
   align-items: baseline;
   width: 200px;
@@ -1033,7 +1031,7 @@ html, body {
   color: white;
   padding: 0.5rem 1rem 0.5rem 1rem;
 }
-.__productslist > .container .__products span img {
+.__list .__users .__usercard span img {
   display: none;
   align-items: baseline;
   width: 150px;
@@ -1042,7 +1040,7 @@ html, body {
   font-size: 12px;
   color: white;
 }
-.__productslist > .container .__products span:hover p {
+.__list .__users .__usercard span:hover p {
   display: inline;
   position: absolute;
   border: 1px solid black;
@@ -1050,7 +1048,7 @@ html, body {
   left: -210px;
   z-index: 50;
 }
-.__productslist > .container .__products span:hover img {
+.__list .__users .__usercard span:hover img {
   display: inline;
   position: absolute;
   border: 1px solid black;
@@ -1058,7 +1056,7 @@ html, body {
   left: 410px;
   z-index: 50;
 }
-.__productslist > .container .__products ._extrabutton {
+.__list .__users .__usercard ._extrabutton {
   font-weight: bold;
   background-color: green;
   color: white;
@@ -1068,47 +1066,47 @@ html, body {
   border-radius: 5px;
   padding: 0;
 }
-.__productslist > .container .modal-header ._modal-title {
+.__list .modal-header ._modal-title {
   display: block;
   justify-content: space-between;
   align-items: center;
 }
-.__productslist > .container .modal-header ._modal-title .__modalheader_title {
+.__list .modal-header ._modal-title .__modalheader_title {
   font-size: 18px;
 }
-.__productslist > .container .modal-header ._modal-title .__modalheader_text {
+.__list .modal-header ._modal-title .__modalheader_text {
   font-size: 12px;
   color: gray;
 }
-.__productslist > .container .modal-body {
+.__list .modal-body {
   text-align: center;
   color: black;
   padding: 30px;
   font-size: 20px;
 }
-.__productslist > .container .__update {
+.__list .__update {
   text-align: left;
   color: black;
   padding: 30px;
 }
-.__productslist > .container .__update label {
+.__list .__update label {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
   text-align: center;
 }
-.__productslist > .container .__update label p {
+.__list .__update label p {
   margin: auto 0 0;
 }
-.__productslist > .container .__update label .actual {
+.__list .__update label .actual {
   text-align: center;
   font-size: 13px;
   color: black;
 }
-.__productslist > .container .__update input, .__productslist > .container .__update textarea {
+.__list .__update input, .__list .__update textarea {
   width: 437px;
 }
-.__productslist > .container .__delete {
+.__list .__delete {
   background-color: rgb(243, 2, 2);
   font-weight: bold;
 }

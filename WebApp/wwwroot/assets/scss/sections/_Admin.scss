@@ -65,7 +65,7 @@
 }
 
 
-.__productslist {
+.__list {
     display: grid;
     margin-top: 10px;
 
@@ -98,13 +98,11 @@
         }
     }
 
-    & > .container {
-        width: 1110px;
+    & .__users {
         display: flex;
         flex-direction: column;
-        align-items: center;
 
-        & .__products {
+        & .__usercard {
             display: flex;
             justify-content: space-between;
             position: relative;
@@ -120,6 +118,7 @@
             & .__largebox {
                 width: 290px;
             }
+
 
             & span {
                 font-size: $font-size-16;
@@ -188,64 +187,65 @@
                 padding: 0;
             }
         }
+    }
 
-        & .modal-header {
-
-
-            & ._modal-title {
-                display: block;
-                justify-content: space-between;
-                align-items: center;
-
-                & .__modalheader_title {
-                    font-size: 18px;
-                }
-
-                & .__modalheader_text {
-                    font-size: 12px;
-                    color: gray;
-                }
-            }
-        }
-
-        & .modal-body {
-            text-align: center;
-            color: black;
-            padding: 30px;
-            font-size: 20px;
-        }
-
-        & .__update {
-            text-align: left;
-            color: black;
-            padding: 30px;
-
-            & label {
-                display: flex;
-                justify-content: space-between;
-                font-size: 16px;
-                text-align: center;
-
-                & p {
-                    margin: auto 0 0;
-                }
+    & .modal-header {
 
 
-                & .actual {
-                    text-align: center;
-                    font-size: 13px;
-                    color: black;
-                }
+        & ._modal-title {
+            display: block;
+            justify-content: space-between;
+            align-items: center;
+
+            & .__modalheader_title {
+                font-size: 18px;
             }
 
-            & input, textarea {
-                width: 437px;
+            & .__modalheader_text {
+                font-size: 12px;
+                color: gray;
             }
-        }
-
-        & .__delete {
-            background-color: rgb(243, 2, 2);
-            font-weight: bold;
         }
     }
+
+    & .modal-body {
+        text-align: center;
+        color: black;
+        padding: 30px;
+        font-size: 20px;
+    }
+
+    & .__update {
+        text-align: left;
+        color: black;
+        padding: 30px;
+
+        & label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            text-align: center;
+
+            & p {
+                margin: auto 0 0;
+            }
+
+
+            & .actual {
+                text-align: center;
+                font-size: 13px;
+                color: black;
+            }
+        }
+
+        & input, textarea {
+            width: 437px;
+        }
+    }
+
+    & .__delete {
+        background-color: rgb(243, 2, 2);
+        font-weight: bold;
+    }
 }
+

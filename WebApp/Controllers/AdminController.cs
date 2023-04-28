@@ -19,9 +19,10 @@ namespace WebApp.Controllers
             return View();
         }
 
-        public IActionResult Users()
+        public async Task<IActionResult> Users()
         {
-            return View();
+            var users = await _userService.GetAllUsersAsync();
+            return View(users);
         }
 
         public async Task<IActionResult> Products()

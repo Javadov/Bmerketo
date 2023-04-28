@@ -36,17 +36,17 @@
                                 <i class="fa-solid fa-gear"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target={"#updateProduct" + product._id}>EDIT PRODUCT</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target={"#deleteProduct" + product._id}>DELETE PRODUCT</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target={"#updateProduct" + @user.Id}>EDIT PRODUCT</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target={"#deleteProduct" + @user.Id}>DELETE PRODUCT</a></li>
                             </ul>
 
-                            <div class="modal fade" id={"updateProduct" + product._id} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="updateProducttLabel" aria-hidden="true">
+                            <div class="modal fade" id={"updateProduct" + @user.Id} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="updateProducttLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <ProductUpdate key={product._id} product={product} />
                                 </div>
                             </div>
 
-                            <div class="modal fade" id={"deleteProduct" + product._id} tabIndex={-1} aria-labelledby="deleteProductLabel" aria-hidden="true">
+                            <div class="modal fade" id={"deleteProduct" + @user.Id} tabIndex={-1} aria-labelledby="deleteProductLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <ProductDelete key={product._id} product={product} />
                                 </div>
