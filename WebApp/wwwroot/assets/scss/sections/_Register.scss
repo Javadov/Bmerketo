@@ -22,68 +22,7 @@
                 color: $color-gray-2;
             }
 
-            & #registerForm {
 
-                & .__input {
-                    display: flex;
-                    gap: 30px;
-                }
-
-                & .userdetails {
-                    display: flex;
-                    flex-direction: column;
-                    width: 100%;
-                    margin-top: 40px;
-
-                    & label {
-                        font-family: $font-roboto;
-                        font-size: $font-size-16;
-                        font-weight: $font-weight-regular;
-                        color: $color-gray-2;
-                    }
-
-                    & input {
-                        display: grid;
-                        width: 100%;
-                        height: 50px;
-                        padding-left: 20px;
-                        background-color: $color-gray-5;
-                        border: none;
-                    }
-
-                    & a {
-                        color: red;
-                        text-decoration: none;
-                    }
-                }
-
-                & .errorMessage {
-                    color: $color-theme-red;
-                    font-size: $font-size-14;
-                    font-weight: $font-weight-regular;
-                }
-
-                & .rememberme {
-                    margin-top: 10px;
-
-                    & input {
-                        margin-right: 10px;
-                        background-color: $color-gray-6;
-                        border: none;
-                    }
-
-                    & label {
-                        font-family: $font-roboto;
-                        font-size: $font-size-14;
-                        font-weight: $font-weight-regular;
-                        color: $color-gray-2;
-                    }
-                }
-
-                & button {
-                    margin-top: 30px;
-                }
-            }
         }
 
 
@@ -92,5 +31,68 @@
             font-weight: $font-weight-semibold;
             color: $color-theme-red;
         }
+    }
+}
+
+#registerForm {
+
+    & .__input {
+        display: flex;
+        gap: 30px;
+    }
+
+    & .userdetails {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 40px;
+
+        & label {
+            font-family: $font-roboto;
+            font-size: $font-size-16;
+            font-weight: $font-weight-regular;
+            color: $color-gray-2;
+        }
+
+        & input {
+            display: grid;
+            width: 100%;
+            height: 50px;
+            padding-left: 20px;
+            background-color: $color-gray-5;
+            border: none;
+        }
+
+        & a {
+            color: red;
+            text-decoration: none;
+        }
+    }
+
+    & .errorMessage {
+        color: $color-theme-red;
+        font-size: $font-size-14;
+        font-weight: $font-weight-regular;
+    }
+
+    & .rememberme {
+        margin-top: 10px;
+
+        & input {
+            margin-right: 10px;
+            background-color: $color-gray-6;
+            border: none;
+        }
+
+        & label {
+            font-family: $font-roboto;
+            font-size: $font-size-14;
+            font-weight: $font-weight-regular;
+            color: $color-gray-2;
+        }
+    }
+
+    & button {
+        margin-top: 30px;
     }
 }

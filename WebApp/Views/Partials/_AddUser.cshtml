@@ -1,6 +1,6 @@
 ﻿@model UserRegisterViewModel
 
-<form asp-action="AddUser" asp-controller="Admin" class="modal-dialog" method="post">
+<form class="modal-dialog" method="post">
 
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -88,3 +88,19 @@
         </div>
     </div>
 </form>
+
+@*
+<script>
+    async function addUser() {
+        const response = await fetch(`/add`, {
+            method: 'POST'
+        });
+        if (response.ok) {
+            // Reload the page to reflect the updated user list
+            location.reload();
+        } else {
+            // Handle errors
+            console.error('Error deleting user:', response.statusText);
+        }
+    }
+</script>*@

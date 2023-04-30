@@ -808,23 +808,29 @@ html, body {
   border-bottom: 1px solid #F3F2F2;
   color: #636363;
 }
-.__registersection > .container .__contactbox #registerForm .__input {
+.__registersection > .container .thankyou {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FF7373;
+}
+
+#registerForm .__input {
   display: flex;
   gap: 30px;
 }
-.__registersection > .container .__contactbox #registerForm .userdetails {
+#registerForm .userdetails {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 40px;
 }
-.__registersection > .container .__contactbox #registerForm .userdetails label {
+#registerForm .userdetails label {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #636363;
 }
-.__registersection > .container .__contactbox #registerForm .userdetails input {
+#registerForm .userdetails input {
   display: grid;
   width: 100%;
   height: 50px;
@@ -832,36 +838,31 @@ html, body {
   background-color: #FAFAFA;
   border: none;
 }
-.__registersection > .container .__contactbox #registerForm .userdetails a {
+#registerForm .userdetails a {
   color: red;
   text-decoration: none;
 }
-.__registersection > .container .__contactbox #registerForm .errorMessage {
+#registerForm .errorMessage {
   color: #FF7373;
   font-size: 0.875rem;
   font-weight: 400;
 }
-.__registersection > .container .__contactbox #registerForm .rememberme {
+#registerForm .rememberme {
   margin-top: 10px;
 }
-.__registersection > .container .__contactbox #registerForm .rememberme input {
+#registerForm .rememberme input {
   margin-right: 10px;
   background-color: #C8C8C8;
   border: none;
 }
-.__registersection > .container .__contactbox #registerForm .rememberme label {
+#registerForm .rememberme label {
   font-family: "Roboto", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   color: #636363;
 }
-.__registersection > .container .__contactbox #registerForm button {
+#registerForm button {
   margin-top: 30px;
-}
-.__registersection > .container .thankyou {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #FF7373;
 }
 
 .__account {
@@ -931,7 +932,7 @@ html, body {
   border-radius: 5px;
   padding: 11px;
 }
-.__admin > .container .__manageproducts button {
+.__admin > .container .__manageproducts .__adduser {
   font-size: 1.125rem;
   font-weight: bold;
   background-color: green;

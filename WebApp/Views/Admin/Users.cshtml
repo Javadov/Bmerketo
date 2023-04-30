@@ -7,7 +7,8 @@
     <div class="container">
         <div class="__manageproducts">
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">MANAGE PRODUCTS</a>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Product</button>
+            @*<button type="button" id="myButton">Add Product</button>*@
+            <a asp-action="adduser" asp-controller="admin" class="__adduser">Add User</a>
         </div>
         <div class="__list collapse" id="collapseExample">
             <div class="__rubrik">
@@ -31,3 +32,10 @@
         </div>
     </div>
 </div>
+@*
+<script>
+    const button = document.getElementById('myButton');
+    button.addEventListener('click', () => {
+        window.open('/admin/adduser', '_blank', 'width=500,height=500');
+    });
+</script>*@

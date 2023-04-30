@@ -32,6 +32,12 @@ namespace WebApp.Controllers
             return View(users);
         }
 
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddUser(UserRegisterViewModel model)
         {
@@ -49,7 +55,7 @@ namespace WebApp.Controllers
                     ModelState.AddModelError("", "Registration failed.");
                 }
 
-                return RedirectToAction("Users");
+                return RedirectToAction("admin","users");
             }
 
             return View(model);
@@ -67,23 +73,23 @@ namespace WebApp.Controllers
             return Ok(user);
         }
 
-        //[HttpPost("delete/{id}")]
-        //public async Task<ActionResult> DeleteUser(string id)
-        //{
-        //    var user = await _userService.GetUserAsync(id);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPost("delete/{id}")]
+        public async Task<ActionResult> DeleteUser(string id)
+        {
+            var user = await _userService.GetUserAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
 
-        //    var result = await _userService.DeleteUserAsync(user);
-        //    if (result)
-        //    {
-        //        return Ok();
-        //    }
+            var result = await _userService.DeleteUserAsync(user);
+            if (result)
+            {
+                return Ok();
+            }
 
-        //    return StatusCode(500);
-        //}
+            return StatusCode(500);
+        }
 
         public async Task<IActionResult> Products()
         {

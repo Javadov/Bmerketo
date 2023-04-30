@@ -39,6 +39,11 @@ public class UserService
     //    return entity!;
     //}
 
+    public async Task<AppUser> AddUserAsync(AppUser user)
+    {
+        return await _userRepo.AddAsync(user);
+    }
+
     public async Task<AppUser> GetUserAsync(string userId)
     {
         return await _userRepo.GetAsync(u => u.Id == userId);
