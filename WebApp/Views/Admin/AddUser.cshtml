@@ -1,0 +1,90 @@
+﻿@model UserRegisterViewModel
+
+<form class="modal-dialog" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a new Product</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="__input">
+                <div class="userdetails">
+                    <label asp-for="FirstName">First Name *</label>
+                    <input asp-for="FirstName" />
+                    <small class="text-danger"><span asp-validation-for="FirstName"></span></small>
+                </div>
+                <div class="userdetails">
+                    <label asp-for="LastName">Last Name *</label>
+                    <input asp-for="LastName" />
+                    <small class="text-danger"><span asp-validation-for="LastName"></span></small>
+                </div>
+            </div>
+
+            <div class="userdetails">
+                <label asp-for="StreetName">Street Name *</label>
+                <input asp-for="StreetName" />
+                <small class="text-danger"><span asp-validation-for="StreetName"></span></small>
+            </div>
+
+            <div class="__input">
+                <div class="userdetails">
+                    <label asp-for="PostalCode">Postal Code *</label>
+                    <input asp-for="PostalCode" />
+                    <small class="text-danger"><span asp-validation-for="PostalCode"></span></small>
+                </div>
+                <div class="userdetails">
+                    <label asp-for="City">City *</label>
+                    <input asp-for="City" />
+                    <small class="text-danger"><span asp-validation-for="City"></span></small>
+                </div>
+            </div>
+
+            <div class="__input">
+                <div class="userdetails">
+                    <label asp-for="Mobile">Mobile (Optional)</label>
+                    <input asp-for="Mobile" />
+                </div>
+                <div class="userdetails">
+                    <label asp-for="CompanyName">Company (Optional)</label>
+                    <input asp-for="CompanyName" />
+                </div>
+            </div>
+
+            <div class="userdetails">
+                <label asp-for="Email">Email *</label>
+                <input asp-for="Email" />
+                <small class="text-danger"><span asp-validation-for="Email"></span></small>
+            </div>
+
+            <div class="userdetails">
+                <label asp-for="Password">Password *</label>
+                <input asp-for="Password" />
+                <small class="text-danger"><span asp-validation-for="Password"></span></small>
+            </div>
+
+            <div class="userdetails">
+                <label asp-for="ConfirmPassword">Confirm Password *</label>
+                <input asp-for="ConfirmPassword" />
+                <small class="text-danger"><span asp-validation-for="ConfirmPassword"></span></small>
+            </div>
+
+            <div class="userdetails">
+                <label asp-for="ProfilePicture">Upload Profile Image (optional)</label>
+                <input asp-for="ProfilePicture" />
+            </div>
+        </div>
+        @if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Message"]
+            </div>
+        }
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</form>

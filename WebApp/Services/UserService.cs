@@ -1,4 +1,5 @@
 ﻿using Amazon.EC2.Model;
+using Amazon.IdentityManagement.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -32,15 +33,25 @@ public class UserService
     //    return entity!;
     //}
 
-    public async Task<AppUser> GetUserAsync(ClaimsPrincipal claimsPrincipal)
+    //public async Task<AppUser> GetUserAsync(ClaimsPrincipal claimsPrincipal)
+    //{
+    //    var entity = await _userManager.GetUserAsync(claimsPrincipal);
+    //    return entity!;
+    //}
+
+    public async Task<AppUser> GetUserAsync(string userId)
     {
-        var entity = await _userManager.GetUserAsync(claimsPrincipal);
-        return entity!;
+        return await _userRepo.GetAsync(u => u.Id == userId);
     }
 
     public async Task<List<AppUser>> GetAllUsersAsync()
     {
-        return await _userManager.Users.ToListAsync();
+        return (List<AppUser>)await _userRepo.GetAllAsync();
+    }
+
+    public async Task<bool> DeleteUserAsync(AppUser user)
+    {
+        return await _userRepo.DeleteAsync(user);
     }
 
     //public async Task<IEnumerable<UserCardViewModel>> GetAllUserProfileAsync()

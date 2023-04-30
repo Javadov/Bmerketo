@@ -42,7 +42,6 @@ public class AuthService
 
             AppUser appUser = model;
 
-
             var result = await _userManager.CreateAsync(appUser, model.Password);
 
             await _userManager.AddToRoleAsync(appUser, roleName);

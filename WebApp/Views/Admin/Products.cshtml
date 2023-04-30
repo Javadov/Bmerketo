@@ -58,60 +58,7 @@
         </div>
 
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <form class="modal-dialog" onSubmit={handleCreate}>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a new Product</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_tag">Tag <span class="required">*</span></label>
-                            <select id="product_tag" class="form-select" aria-label="Default select example">
-                                <option value="">Select Tag</option>
-                                <option value="featured">featured</option>
-                                <option value="square">square</option>
-                                <option value="tripple">tripple</option>
-                            </select>
-                        </div>
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_category">Category <span class="required">*</span></label>
-                            <input id="product_category" type="text" placeholder="" required />
-                        </div>
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_name">Product name  <span class="required">*</span></label>
-                            <input id="product_name" type="text" placeholder="" required />
-                        </div>
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_image">Product image link <span class="required">*</span></label>
-                            <input id="product_image" type="text" placeholder="" required />
-                        </div>
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_rating">Rating <span class="required">*</span></label>
-                            <input id="product_rating" type="text" placeholder="" required />
-                        </div>
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_price">Price <span class="required">*</span></label>
-                            <input id="product_price" type="text" placeholder="" required />
-                        </div>
-                        <div class="d-grid mb-2">
-                            <label htmlFor="product_decription">Decription</label>
-                            <textarea id="product_decription" placeholder=""></textarea>
-                        </div>
-                    </div>
-                    {
-                    created ?  (<div class="modal-body alert alert-success text-center">Product is added successfully!</div>) : (<></>)
-                    }
-                    {
-                    failed ?   (<div class="modal-body alert alert-danger text-center">Creating product is failed!</div>) : (<></>)
-                    }
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Create</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </form>
+            <partial name="/Views/Partials/_AddUser.cshtml" />
         </div>
     </div>
 </div>
