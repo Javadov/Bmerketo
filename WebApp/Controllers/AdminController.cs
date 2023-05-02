@@ -55,7 +55,7 @@ namespace WebApp.Controllers
                     ModelState.AddModelError("", "Registration failed.");
                 }
 
-                return RedirectToAction("admin","users");
+                return RedirectToAction("users", "admin");
             }
 
             return View(model);
