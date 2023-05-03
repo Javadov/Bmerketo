@@ -10,7 +10,7 @@
         border-radius: 5px;
         box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 
-        & .__manageproducts {
+        & .__manageusers {
             display: flex;
             justify-content: space-between;
             margin-bottom: 65px;
@@ -26,6 +26,7 @@
                 border: 1px black solid;
                 border-radius: 5px;
                 padding: 11px;
+                text-decoration: none;
             }
 
             & .__adduser {
@@ -65,7 +66,7 @@
 }
 
 
-.__list {
+.__listheader {
     display: grid;
     margin-top: 10px;
 
@@ -79,56 +80,52 @@
             color: rgb(253, 246, 246);
             text-align: center;
             border: 1px black solid;
-            border-radius: 5px;
             width: 175px;
             height: 35px;
             padding: 5px;
         }
 
-        & .__smallbox {
-            width: 60px;
+        & .__mediumboxheader {
+            width: 228px;
         }
 
-        & .__mediumbox {
-            width: 100px;
+        & .__largeboxheader {
+            width: 340px;
         }
 
-        & .__largebox {
-            width: 290px;
+        & .__extraboxheader {
+            width: 260px;
         }
     }
 
-    & .__users {
+    & .__userslist {
         display: flex;
         flex-direction: column;
 
-        & .__usercard {
+        & .__userdetails {
             display: flex;
             justify-content: space-between;
-            position: relative;
-
-            & .__smallbox {
-                width: 60px;
-            }
+            box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 7px 7px 0 7px;
+            margin-bottom: 3px;
 
             & .__mediumbox {
-                width: 100px;
+                width: 220px;
             }
 
             & .__largebox {
-                width: 290px;
+                width: 340px;
             }
 
 
             & span {
                 font-size: $font-size-16;
                 font-weight: bold;
-                background-color: $color-gray-2;
+                background-color: $color-gray-1;
                 color: black;
-                text-align: center;
-                border: 1px black solid;
+                text-align: left;
                 border-radius: 5px;
-                width: 175px;
                 height: 35px;
                 padding: 5px;
 
@@ -174,6 +171,16 @@
                     left: 410px;
                     z-index: 50;
                 }
+            }
+
+            & .__usercardlink {
+                text-align: center;
+                height: 35px;
+                background-color: gray;
+                border: 1px dotted black;
+                border-radius: 5px;
+                color: white;
+                padding: 6px 20px 0 20px;
             }
 
             & ._extrabutton {

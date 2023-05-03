@@ -5,24 +5,21 @@
 
 <div class="__admin">
     <div class="container">
-        <div class="__manageproducts">
+        <div class="__manageusers">
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">MANAGE PRODUCTS</a>
             @*<button type="button" id="myButton">Add Product</button>*@
-            <a asp-action="adduser" asp-controller="admin" class="__adduser">Add User</a>
+            <a asp-action="useradd" asp-controller="admin" class="__adduser">ADD USER</a>
         </div>
-        <div class="__list collapse" id="collapseExample">
+        <div class="__listheader collapse" id="collapseExample">
             <div class="__rubrik">
-                <span class="__smallbox">ID</span>
-                <span class="__mediumbox">Tag</span>
-                <span class="__mediumbox">Category</span>
-                <span class="__largebox">Product Name</span>
-                <span class="__largebox">Product Image</span>
-                <span class="__smallbox">Rating</span>
-                <span class="__smallbox">Price</span>
-                <span class="__mediumbox">Description</span>
+                <span class="__mediumboxheader">Firstname</span>
+                <span class="__mediumboxheader">Lastname</span>
+                <span class="__largeboxheader">Email</span>
+                <span class="__extraboxheader">Extra details</span>
+
             </div>
 
-            <div class="__users">
+            <div class="__userslist">
                 <partial name="/Views/Partials/_UserList.cshtml" />
             </div>
         </div>

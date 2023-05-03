@@ -915,12 +915,12 @@ html, body {
   border-radius: 5px;
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
-.__admin > .container .__manageproducts {
+.__admin > .container .__manageusers {
   display: flex;
   justify-content: space-between;
   margin-bottom: 65px;
 }
-.__admin > .container .__manageproducts a {
+.__admin > .container .__manageusers a {
   font-size: 1.125rem;
   font-weight: bold;
   background-color: #FF7373;
@@ -931,8 +931,9 @@ html, body {
   border: 1px black solid;
   border-radius: 5px;
   padding: 11px;
+  text-decoration: none;
 }
-.__admin > .container .__manageproducts .__adduser {
+.__admin > .container .__manageusers .__adduser {
   font-size: 1.125rem;
   font-weight: bold;
   background-color: green;
@@ -961,68 +962,65 @@ html, body {
   border: 1px solid black;
 }
 
-.__list {
+.__listheader {
   display: grid;
   margin-top: 10px;
 }
-.__list .__rubrik {
+.__listheader .__rubrik {
   display: flex;
 }
-.__list .__rubrik span {
+.__listheader .__rubrik span {
   font-size: 1rem;
   font-weight: bold;
   background-color: #FF7373;
   color: rgb(253, 246, 246);
   text-align: center;
   border: 1px black solid;
-  border-radius: 5px;
   width: 175px;
   height: 35px;
   padding: 5px;
 }
-.__list .__rubrik .__smallbox {
-  width: 60px;
+.__listheader .__rubrik .__mediumboxheader {
+  width: 228px;
 }
-.__list .__rubrik .__mediumbox {
-  width: 100px;
+.__listheader .__rubrik .__largeboxheader {
+  width: 340px;
 }
-.__list .__rubrik .__largebox {
-  width: 290px;
+.__listheader .__rubrik .__extraboxheader {
+  width: 260px;
 }
-.__list .__users {
+.__listheader .__userslist {
   display: flex;
   flex-direction: column;
 }
-.__list .__users .__usercard {
+.__listheader .__userslist .__userdetails {
   display: flex;
   justify-content: space-between;
-  position: relative;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 7px 7px 0 7px;
+  margin-bottom: 3px;
 }
-.__list .__users .__usercard .__smallbox {
-  width: 60px;
+.__listheader .__userslist .__userdetails .__mediumbox {
+  width: 220px;
 }
-.__list .__users .__usercard .__mediumbox {
-  width: 100px;
+.__listheader .__userslist .__userdetails .__largebox {
+  width: 340px;
 }
-.__list .__users .__usercard .__largebox {
-  width: 290px;
-}
-.__list .__users .__usercard span {
+.__listheader .__userslist .__userdetails span {
   font-size: 1rem;
   font-weight: bold;
-  background-color: #636363;
+  background-color: #F3F2F2;
   color: black;
-  text-align: center;
-  border: 1px black solid;
+  text-align: left;
   border-radius: 5px;
-  width: 175px;
   height: 35px;
   padding: 5px;
 }
-.__list .__users .__usercard span img {
+.__listheader .__userslist .__userdetails span img {
   width: 100px;
 }
-.__list .__users .__usercard span p {
+.__listheader .__userslist .__userdetails span p {
   display: none;
   align-items: baseline;
   width: 200px;
@@ -1032,7 +1030,7 @@ html, body {
   color: white;
   padding: 0.5rem 1rem 0.5rem 1rem;
 }
-.__list .__users .__usercard span img {
+.__listheader .__userslist .__userdetails span img {
   display: none;
   align-items: baseline;
   width: 150px;
@@ -1041,7 +1039,7 @@ html, body {
   font-size: 12px;
   color: white;
 }
-.__list .__users .__usercard span:hover p {
+.__listheader .__userslist .__userdetails span:hover p {
   display: inline;
   position: absolute;
   border: 1px solid black;
@@ -1049,7 +1047,7 @@ html, body {
   left: -210px;
   z-index: 50;
 }
-.__list .__users .__usercard span:hover img {
+.__listheader .__userslist .__userdetails span:hover img {
   display: inline;
   position: absolute;
   border: 1px solid black;
@@ -1057,7 +1055,16 @@ html, body {
   left: 410px;
   z-index: 50;
 }
-.__list .__users .__usercard ._extrabutton {
+.__listheader .__userslist .__userdetails .__usercardlink {
+  text-align: center;
+  height: 35px;
+  background-color: gray;
+  border: 1px dotted black;
+  border-radius: 5px;
+  color: white;
+  padding: 6px 20px 0 20px;
+}
+.__listheader .__userslist .__userdetails ._extrabutton {
   font-weight: bold;
   background-color: green;
   color: white;
@@ -1067,47 +1074,47 @@ html, body {
   border-radius: 5px;
   padding: 0;
 }
-.__list .modal-header ._modal-title {
+.__listheader .modal-header ._modal-title {
   display: block;
   justify-content: space-between;
   align-items: center;
 }
-.__list .modal-header ._modal-title .__modalheader_title {
+.__listheader .modal-header ._modal-title .__modalheader_title {
   font-size: 18px;
 }
-.__list .modal-header ._modal-title .__modalheader_text {
+.__listheader .modal-header ._modal-title .__modalheader_text {
   font-size: 12px;
   color: gray;
 }
-.__list .modal-body {
+.__listheader .modal-body {
   text-align: center;
   color: black;
   padding: 30px;
   font-size: 20px;
 }
-.__list .__update {
+.__listheader .__update {
   text-align: left;
   color: black;
   padding: 30px;
 }
-.__list .__update label {
+.__listheader .__update label {
   display: flex;
   justify-content: space-between;
   font-size: 16px;
   text-align: center;
 }
-.__list .__update label p {
+.__listheader .__update label p {
   margin: auto 0 0;
 }
-.__list .__update label .actual {
+.__listheader .__update label .actual {
   text-align: center;
   font-size: 13px;
   color: black;
 }
-.__list .__update input, .__list .__update textarea {
+.__listheader .__update input, .__listheader .__update textarea {
   width: 437px;
 }
-.__list .__delete {
+.__listheader .__delete {
   background-color: rgb(243, 2, 2);
   font-weight: bold;
 }

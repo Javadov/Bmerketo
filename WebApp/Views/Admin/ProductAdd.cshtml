@@ -1,0 +1,50 @@
+﻿@model ProductAddViewModel
+
+<div class="__admin">
+    <div class="container">
+        <form id='registerForm' method="post">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a new User</h1>
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="__input">
+                <div class="userdetails">
+                    <label asp-for="Name">Product Name *</label>
+                    <input asp-for="Name" required />
+                    <small class="text-danger"><span asp-validation-for="Name"></span></small>
+                </div>
+                <div class="userdetails">
+                    <label asp-for="Price">Price *</label>
+                    <input asp-for="Price" required />
+                    <small class="text-danger"><span asp-validation-for="Price"></span></small>
+                </div>
+            </div>
+
+            <div class="__input">
+                <div class="userdetails">
+                    <label asp-for="Description">Description *</label>
+                    <input asp-for="Description" required />
+                    <small class="text-danger"><span asp-validation-for="Description"></span></small>
+                </div>
+            </div>
+
+            <div class="userdetails">
+                <label asp-for="Images">Upload Product Image(s) *</label>
+                <input asp-for="Images" multiple/>
+            </div>
+
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["Message"]
+                </div>
+            }
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <button asp-action="users" asp-controller="admin" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

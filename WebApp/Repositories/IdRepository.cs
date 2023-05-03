@@ -4,11 +4,11 @@ using WebApp.Models.Contexts;
 
 namespace WebApp.Repositories;
 
-public class Repository<TEntity> where TEntity : class
+public class IdRepository<TEntity> where TEntity : class
 {
     private readonly IdentityContext _context;
 
-    public Repository(IdentityContext context)
+    public IdRepository(IdentityContext context)
     {
         _context = context;
     }

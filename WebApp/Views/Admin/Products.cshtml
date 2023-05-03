@@ -1,13 +1,10 @@
 ﻿@{ViewData["Title"] = "Manage Products";}
-@model List<AppUser>
 
 <div class="__admin">
     <div class="container">
-        <div class="__manageproducts">
+        <div class="__manageusers">
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">MANAGE PRODUCTS</a>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Add Product
-            </button>
+            <a asp-action="productadd" asp-controller="admin" class="__adduser">ADD PRODUCT</a>
         </div>
         <div class="__productslist collapse" id="collapseExample">
             <div class="__rubrik">
@@ -22,7 +19,7 @@
             </div>
 
             <div class="__productslist">
-                @foreach (var user in Model)
+@*                @foreach (var user in Model)
                 {
                     <div class="__products" role="group" aria-label="Button group with nested dropdown">
                         <span class="__smallbox"><p>@user.Id</p></span>
@@ -53,12 +50,12 @@
                             </div>
                         </div>
                     </div>
-                }
+                }*@
             </div>
         </div>
 
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <partial name="/Views/Partials/_AddUser.cshtml" />
+      @*      <partial name="/Views/Partials/_AddUser.cshtml" />*@
         </div>
     </div>
 </div>

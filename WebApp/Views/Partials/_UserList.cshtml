@@ -2,32 +2,59 @@
 
 @foreach (var user in Model)
 {
-    <div class="__usercard" role="group" aria-label="Button group with nested dropdown">
-        <span class="__smallbox"><p>@user.UserId</p>ID</span>
+    <div class="__userdetails" role="group" aria-label="Button group with nested dropdown">
         <span class="__mediumbox">@user.FirstName</span>
         <span class="__mediumbox">@user.LastName</span>
-        <span class="__smallbox">@user.Email</span>
-        <span class="__smallbox">@user.PhoneNumber</span>
-        <span class="__smallbox">@user.Company</span>
-        <span class="__smallbox">@user.Role</span>
-        @foreach (var address in user.Addresses)
-        {
-            <span class="__smallbox">@address.StreetName</span>
-            <span class="__smallbox">@address.PostalCode</span>
-            <span class="__smallbox">@address.City</span>
-        }
+        <span class="__largebox">@user.Email</span>
+
+        <h5 class="__usercardlink">
+            <button class="dropdown-item" data-bs-toggle="modal" data-bs-target=#showUserCard@(@user.UserId)><i class="fa-solid fa-address-card"></i> SHOW USERCARD</button>
+        </h5>
+
         <div class="btn-group dropend" role="group">
-            <button type="button" class="btn btn-primary dropdown-toggle _extrabutton" data-bs-toggle="dropdown" aria-expanded="false">
+@*            <button type="button" class="btn btn-primary dropdown-toggle _extrabutton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-gear"></i>
             </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target=#updateProduct@(@user.UserId)>EDIT PRODUCT</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target=#deleteProduct@(@user.UserId)>DELETE PRODUCT</a></li>
-            </ul>
+            </ul>*@
 
-            <div class="modal fade" id=updateProduct@(@user.UserId) data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="updateProducttLabel" aria-hidden="true">
+            <div class="modal fade" id=showUserCard@(@user.UserId) data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="showUserCardLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <ProductUpdate key=@user.UserId product={product} />
+                    <div class="modal-content">
+                        <div>
+                            <div class="modal-header  __modalheader">
+                                <div class="modal-title _modal-title fs-5" id="showUserCardLabel"><div class="__modalheader_title">UserCard</div><div class="__modalheader_text"><h6>ID: @user.UserId</h6></div></div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <span class="__mediumbox">@user.FirstName</span>
+                                <span class="__mediumbox">@user.LastName</span>
+                                <span class="__smallbox">@user.Email</span>
+                                <span class="__smallbox">@user.PhoneNumber</span>
+                                <span class="__smallbox">@user.Company</span>
+                                <span class="__smallbox">@user.Role</span>
+                                @foreach (var address in user.Addresses)
+                                {
+                                    <span class="__smallbox">@address.StreetName</span>
+                                    <span class="__smallbox">@address.PostalCode</span>
+                                    <span class="__smallbox">@address.City</span>
+                                }>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="d-flex">
+                                    <button class="d-grid" type="submit" class="btn btn-success" id="submitButton">Update</button>
+                                    <button class="d-grid" type="button" data-bs-toggle="modal" data-bs-target=#deleteProduct@(@user.UserId)>Delete</button>
+                                </div>
+                                <div class="d-flex">
+                                    <button class="d-grid" type="submit" class="btn btn-success" id="submitButton">Make Admin</button>
+                                    <button class="d-grid" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

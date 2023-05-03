@@ -3,7 +3,7 @@ using WebApp.Models.Identity;
 
 namespace WebApp.Repositories
 {
-    public class RoleRepository : Repository<AppUser>
+    public class RoleRepository : IdRepository<AppUser>
     {
         public RoleRepository(IdentityContext context) : base(context)
         {

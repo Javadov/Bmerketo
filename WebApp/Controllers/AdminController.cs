@@ -12,11 +12,13 @@ namespace WebApp.Controllers
     public class AdminController : Controller
     {
         private readonly UserService _userService;
+        private readonly ProductService _productService;
         private readonly AuthService _auth;
 
-        public AdminController(UserService userService, AuthService auth)
+        public AdminController(UserService userService, AuthService auth, ProductService productService)
         {
             _userService = userService;
+            _productService = productService;
             _auth = auth;
         }
 
@@ -28,18 +30,17 @@ namespace WebApp.Controllers
         public async Task<IActionResult> Users()
         {
             var users = await _userService.GetAllUsersAsync();
-
             return View(users);
         }
 
-        public IActionResult AddUser()
+        public IActionResult UserAdd()
         {
             return View();
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> AddUser(UserRegisterViewModel model)
+        public async Task<IActionResult> UserAdd(UserRegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -96,5 +97,22 @@ namespace WebApp.Controllers
             var users = await _userService.GetAllUsersAsync();
             return View(users);
         }
+
+        public IActionResult ProductAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductAdd(ProductAddViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+               await _productService.CreateAsync(model);
+            }
+
+            return View(model);
+        }
+         
     }
 }

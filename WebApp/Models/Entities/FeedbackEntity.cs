@@ -11,6 +11,6 @@ public class FeedbackEntity
     public string? PhoneNumber { get; set; }
     public string? CompanyName { get; set; }
     public string Comment { get; set; } = null!;
-    public string UserId { get; set; } = null!;
+    public int UserId { get; set; }
     public AppUser User { get; set; } = null!;
 }
