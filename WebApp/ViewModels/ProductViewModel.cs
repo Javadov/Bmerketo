@@ -2,10 +2,10 @@
 
 public class ProductViewModel
 {
-    public string ProductId { get; set; } = null!;
+    public Guid ProductId { get; set; } 
     public string Name { get; set; } = null!;
-    public string Price { get; set; } = null!;
-    public string Rating { get; set; } = null!;
+    public decimal Price { get; set; }
+    public float Rating { get; set; }
     public string Description { get; set; } = null!;
     //public string? PhoneNumber { get; set; }
     //public string? Company { get; set; }

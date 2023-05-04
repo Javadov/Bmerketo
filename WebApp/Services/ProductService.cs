@@ -1,5 +1,6 @@
 ﻿using Amazon.SimpleEmail.Model;
 using Microsoft.EntityFrameworkCore;
+using WebApp.Models.Contexts;
 using WebApp.Models.Dtos;
 using WebApp.Models.Entities;
 using WebApp.Models.Identity;
@@ -12,13 +13,15 @@ public class ProductService
 {
     private readonly ProductRepository _productRepo;
     private readonly ProductImagesRepository _productImagesRepo;
+    private readonly DataContext _dataContext;
     private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public ProductService(ProductRepository productRepo, ProductImagesRepository productImagesRepo, IWebHostEnvironment webHostEnvironment)
+    public ProductService(ProductRepository productRepo, ProductImagesRepository productImagesRepo, IWebHostEnvironment webHostEnvironment, DataContext dataContext)
     {
         _productRepo = productRepo;
         _productImagesRepo = productImagesRepo;
         _webHostEnvironment = webHostEnvironment;
+        _dataContext = dataContext;
     }
 
     public async Task<ProductEntity> AddProductAsync(ProductEntity product)
@@ -42,7 +45,7 @@ public class ProductService
             {
                 foreach (var image in model.Image)
                 {
-                    var imageUrl = $"{product.Id}_{image.FileName.Replace(" ", "_")}";
+                    var imageUrl = $"{product.Id}_{Path.GetFileName(image.FileName).Replace(" ", "_")}";
                     var productImage = new ProductImagesEntity
                     {
                         ProductId = product.Id,
@@ -61,28 +64,46 @@ public class ProductService
 
     public async Task<bool> UploadImageAsync(Product product, IEnumerable<IFormFile> images)
     {
-        //try
-        //{
-        //    string imagePath = $"{_webHostEnvironment.WebRootPath}/images/products/{product.ImageUrl}";
-        //    await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
-        //    return true;
-        //}
-        //catch { return false; }
-
         try
         {
             foreach (var image in images)
             {
-                string imageName = $"{product.Id}_{image.FileName.Replace(" ", "_")}";
+                string imageName = $"{product.Id}_{Path.GetFileName(image.FileName).Replace(" ", "_")}";
                 string imagePath = $"{_webHostEnvironment.WebRootPath}/images/products/{imageName}";
                 using var stream = new FileStream(imagePath, FileMode.Create);
                 await image.CopyToAsync(stream);
             }
             return true;
         }
-        catch
+        catch {return false;}
+    }
+
+    public async Task<IEnumerable<ProductViewModel>> GetAllProductsAsync()
+    {
+        var products = new List<ProductViewModel>();
+
+        var _products = await _productRepo.GetAllAsync();
+
+        foreach (var product in _products)
         {
-            return false;
+            var images = await _dataContext.ProductImages.Where(x => x.ProductId == product.Id).Select(x => x.ImageUrl).ToListAsync();
+
+            var productViewModel = new ProductViewModel
+            {
+                ProductId = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                Rating = product.Rating,
+                Images = images.Select(i => new ProductImagesViewModel
+                {
+                    ImageUrl = i!
+                })
+            };
+
+            products.Add(productViewModel);
+
         }
+
+        return products;
     }
 }

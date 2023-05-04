@@ -3,9 +3,9 @@
 
 <div class="__admin">
     <div class="container">
-        <div class="__manageusers">
+        <div class="__manageproducts">
             <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">MANAGE PRODUCTS</a>
-            <a asp-action="productadd" asp-controller="admin" class="__adduser">ADD PRODUCT</a>
+            <a asp-action="productadd" asp-controller="admin" class="__addproduct">ADD PRODUCT</a>
         </div>
         <div class="__productslist collapse" id="collapseExample">
             <div class="__rubrik">
@@ -20,21 +20,7 @@
             </div>
 
             <div class="__productslist">
-                @foreach (var product in Model)
-                {
-                    <div class="__products" role="group" aria-label="Button group with nested dropdown">
-                        <span class="__smallbox"><p>@product.ProductId</p></span>
-                        <span class="__mediumbox">@product.Name</span>
-                        <span class="__mediumbox">@product.Price</span>
-                        <span class="__smallbox">@product.Rating</span>
-                        <span class="__smallbox">@product.Description</span>
-                        @foreach (var images in product.Images)
-                        {
-                            <img src="~/images/products/@images.ImageUrl" alt="@images.ImageUrl" class="__smallbox" />
-                        }>
-
-                    </div>
-                }
+                <partial name="/Views/Partials/_ProductList.cshtml" />
             </div>
         </div>
 

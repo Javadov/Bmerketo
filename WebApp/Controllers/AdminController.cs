@@ -94,8 +94,8 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> Products()
         {
-            var users = await _userService.GetAllUsersAsync();
-            return View(users);
+            var products = await _productService.GetAllProductsAsync();
+            return View(products);
         }
 
         public IActionResult ProductAdd()
@@ -113,7 +113,7 @@ namespace WebApp.Controllers
                if (product != null)
                {
                     await _productService.UploadImageAsync(product, model.Image!);
-                    return RedirectToAction("productadd");
+                    return RedirectToAction("products");
                }
                 
                ModelState.AddModelError("", "Something went wrong");

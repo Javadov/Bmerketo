@@ -1,0 +1,47 @@
+﻿@model List<ProductViewModel>
+
+@foreach (var product in Model)
+{
+    <div class="__products" role="group" aria-label="Button group with nested dropdown">
+        <span class="__smallbox"><p>@product.ProductId</p>ID</span>
+        <span class="__mediumbox">{product._tag}</span>
+        <span class="__mediumbox">{product._category}</span>
+        <span class="__largebox">@product.Name</span>
+        <div class="__extraspan __largebox">
+            Show Product Image
+            <div class="__productimagestumb">
+                @foreach (var images in product.Images)
+                {
+                
+                        <img src="~/images/products/@images.ImageUrl" alt="@product.Name" width="100px" height="100px" />
+                
+                }>
+            </div>
+        </div>
+        <span class="__smallbox">@product.Rating</span>
+        <span class="__smallbox">@product.Price</span>
+        <span class="__mediumbox">@product.Description</span>
+
+        <div class="btn-group dropend" role="group">
+            <button type="button" class="btn btn-primary dropdown-toggle _extrabutton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target=#updateProduct@product.ProductId>EDIT PRODUCT</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target=#deleteProduct@product.ProductId>DELETE PRODUCT</a></li>
+            </ul>
+
+            <div class="modal fade" id={"updateProduct" + @product.ProductId} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="updateProducttLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <ProductUpdate key={product._id} product={product} />
+                </div>
+            </div>
+
+            <div class="modal fade" id={"deleteProduct" + @product.ProductId} tabIndex={-1} aria-labelledby="deleteProductLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <ProductDelete key={product._id} product={product} />
+                </div>
+            </div>
+        </div>
+    </div>
+}
