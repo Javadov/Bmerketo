@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Amazon.SimpleEmail.Model;
+using Microsoft.EntityFrameworkCore;
+using WebApp.Models.Dtos;
 using WebApp.Models.Entities;
 using WebApp.Models.Identity;
 using WebApp.Repositories;
@@ -10,11 +12,13 @@ public class ProductService
 {
     private readonly ProductRepository _productRepo;
     private readonly ProductImagesRepository _productImagesRepo;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public ProductService(ProductRepository productRepo, ProductImagesRepository productImagesRepo)
+    public ProductService(ProductRepository productRepo, ProductImagesRepository productImagesRepo, IWebHostEnvironment webHostEnvironment)
     {
         _productRepo = productRepo;
         _productImagesRepo = productImagesRepo;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     public async Task<ProductEntity> AddProductAsync(ProductEntity product)
@@ -22,7 +26,7 @@ public class ProductService
         return await _productRepo.AddAsync(product);       
     }
 
-    public async Task<bool> CreateAsync(ProductAddViewModel model)
+    public async Task<Product> CreateAsync(ProductAddViewModel model)
     {
         try
         {
@@ -34,27 +38,51 @@ public class ProductService
                 Images = new List<ProductImagesEntity>()
             };
 
-            foreach (var image in product.Images)
+            if (model.Image != null && model.Image.Length > 0)
             {
-                var imageData = new byte[image.ContentLength];
-                //image.InputStream.Read(imageData, 0, image.ContentLength);
-
-                var productImage = new ProductImagesEntity
+                foreach (var image in model.Image)
                 {
-                    ImageData = imageData,
-                    //ImageMimeType = image.ContentType,
-                    Product = product
-                };
-
-                product.Images.Add(productImage);
+                    var imageUrl = $"{product.Id}_{image.FileName.Replace(" ", "_")}";
+                    var productImage = new ProductImagesEntity
+                    {
+                        ProductId = product.Id,
+                        ImageUrl = imageUrl
+                    };
+                    product.Images.Add(productImage);
+                }
             }
 
             await  _productRepo.AddAsync(product);
-            //_dbContext.SaveChanges();
 
+            return product;
+        }
+        catch { return null!; }
+    }
 
+    public async Task<bool> UploadImageAsync(Product product, IEnumerable<IFormFile> images)
+    {
+        //try
+        //{
+        //    string imagePath = $"{_webHostEnvironment.WebRootPath}/images/products/{product.ImageUrl}";
+        //    await image.CopyToAsync(new FileStream(imagePath, FileMode.Create));
+        //    return true;
+        //}
+        //catch { return false; }
+
+        try
+        {
+            foreach (var image in images)
+            {
+                string imageName = $"{product.Id}_{image.FileName.Replace(" ", "_")}";
+                string imagePath = $"{_webHostEnvironment.WebRootPath}/images/products/{imageName}";
+                using var stream = new FileStream(imagePath, FileMode.Create);
+                await image.CopyToAsync(stream);
+            }
+            return true;
+        }
+        catch
+        {
             return false;
         }
-        catch { return false; }
     }
 }

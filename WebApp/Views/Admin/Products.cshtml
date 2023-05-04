@@ -1,4 +1,5 @@
 ﻿@{ViewData["Title"] = "Manage Products";}
+@model List<ProductViewModel>
 
 <div class="__admin">
     <div class="container">
@@ -19,38 +20,21 @@
             </div>
 
             <div class="__productslist">
-@*                @foreach (var user in Model)
+                @foreach (var product in Model)
                 {
                     <div class="__products" role="group" aria-label="Button group with nested dropdown">
-                        <span class="__smallbox"><p>@user.Id</p></span>
-                        <span class="__mediumbox">@user.FirstName</span>
-                        <span class="__mediumbox">@user.LastName</span>
-                        <span class="__smallbox">@user.Email</span>
-                        <span class="__smallbox">@user.PhoneNumber</span>
+                        <span class="__smallbox"><p>@product.ProductId</p></span>
+                        <span class="__mediumbox">@product.Name</span>
+                        <span class="__mediumbox">@product.Price</span>
+                        <span class="__smallbox">@product.Rating</span>
+                        <span class="__smallbox">@product.Description</span>
+                        @foreach (var images in product.Images)
+                        {
+                            <img src="~/images/products/@images.ImageUrl" alt="@images.ImageUrl" class="__smallbox" />
+                        }>
 
-                        <div class="btn-group dropend" role="group">
-                            <button type="button" class="btn btn-primary dropdown-toggle _extrabutton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-gear"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target={"#updateProduct" + @user.Id}>EDIT PRODUCT</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target={"#deleteProduct" + @user.Id}>DELETE PRODUCT</a></li>
-                            </ul>
-
-                            <div class="modal fade" id={"updateProduct" + @user.Id} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="updateProducttLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <ProductUpdate key={product._id} product={product} />
-                                </div>
-                            </div>
-
-                            <div class="modal fade" id={"deleteProduct" + @user.Id} tabIndex={-1} aria-labelledby="deleteProductLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <ProductDelete key={product._id} product={product} />
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                }*@
+                }
             </div>
         </div>
 

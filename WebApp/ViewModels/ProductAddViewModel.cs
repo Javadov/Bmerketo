@@ -19,7 +19,7 @@ public class ProductAddViewModel
 
     [Display(Name = "Upload Product Images")]
     [DataType(DataType.Upload)]
-    public IFormFile? Images { get; set; }
+    public IFormFile[]? Image { get; set; }
 
     public static implicit operator ProductEntity(ProductAddViewModel model)
     {
@@ -36,6 +36,7 @@ public class ProductAddViewModel
         return new ProductImagesEntity
         {
             ProductId = model.Id,
+            ImageUrl = $"{model.Id}_{model.Name.Replace(" ", "_")}"
         };
     }
 }

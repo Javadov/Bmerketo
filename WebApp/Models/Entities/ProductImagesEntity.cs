@@ -5,11 +5,8 @@ namespace WebApp.Models.Entities;
 
 public class ProductImagesEntity
 {
-    internal readonly int ContentLength;
-
     public int Id { get; set; }
-    public byte[] ImageData { get; set; } = null!;
-    public string ImageMimeType { get; set; } = null!;
+    public string? ImageUrl { get; set; }
     public Guid ProductId { get; set; }
     public ProductEntity Product { get; set; } = null!;
 }

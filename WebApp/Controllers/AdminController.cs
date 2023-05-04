@@ -108,7 +108,15 @@ namespace WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-               await _productService.CreateAsync(model);
+               var product = await _productService.CreateAsync(model);
+
+               if (product != null)
+               {
+                    await _productService.UploadImageAsync(product, model.Image!);
+                    return RedirectToAction("productadd");
+               }
+                
+               ModelState.AddModelError("", "Something went wrong");
             }
 
             return View(model);

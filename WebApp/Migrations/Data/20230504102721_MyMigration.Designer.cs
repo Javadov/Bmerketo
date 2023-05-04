@@ -12,7 +12,7 @@ using WebApp.Models.Contexts;
 namespace WebApp.Migrations.Data
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230503212245_MyMigration")]
+    [Migration("20230504102721_MyMigration")]
     partial class MyMigration
     {
         /// <inheritdoc />
@@ -54,12 +54,7 @@ namespace WebApp.Migrations.Data
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<byte[]>("ImageData")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("ImageMimeType")
-                        .IsRequired()
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ProductId")
