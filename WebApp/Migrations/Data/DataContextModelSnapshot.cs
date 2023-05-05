@@ -69,14 +69,12 @@ namespace WebApp.Migrations.Data
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AdditionalInfo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CategoryEntityId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -90,7 +88,6 @@ namespace WebApp.Migrations.Data
                         .HasColumnType("real");
 
                     b.Property<string>("Review")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TagEntityId")
