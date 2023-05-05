@@ -38,6 +38,7 @@ public class ProductService
                 Id = Guid.NewGuid(),
                 Name = model.Name,
                 Price = model.Price,
+                Description = model.Description,
                 Images = new List<ProductImagesEntity>()
             };
 

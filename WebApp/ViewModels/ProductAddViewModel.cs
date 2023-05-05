@@ -18,6 +18,7 @@ public class ProductAddViewModel
     public string Description { get; set; } = null!;
 
     [Display(Name = "Upload Product Images")]
+    [Required(ErrorMessage = "You must add any images.")]
     [DataType(DataType.Upload)]
     public IFormFile[]? Image { get; set; }
 

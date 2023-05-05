@@ -113,10 +113,11 @@ namespace WebApp.Controllers
                if (product != null)
                {
                     await _productService.UploadImageAsync(product, model.Image!);
+                    TempData["Message"] = "Product is successfully added.";
                     return RedirectToAction("products");
-               }
-                
-               ModelState.AddModelError("", "Something went wrong");
+                }
+
+                ModelState.AddModelError("", "Something went wrong");
             }
 
             return View(model);

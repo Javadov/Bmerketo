@@ -34,7 +34,7 @@
 
             <div class="userdetails">
                 <label asp-for="Image">Upload Product Image(s) *</label>
-                <input asp-for="Image" multiple/>
+                <input asp-for="Image" multiple required />
             </div>
 
             @if (TempData["Message"] != null)
