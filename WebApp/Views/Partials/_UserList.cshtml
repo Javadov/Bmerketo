@@ -32,6 +32,7 @@
                                 <span class="__mediumbox">@user.FirstName</span>
                                 <span class="__mediumbox">@user.LastName</span>
                                 <span class="__smallbox">@user.Email</span>
+
                                 <span class="__smallbox">@user.PhoneNumber</span>
                                 <span class="__smallbox">@user.Company</span>
                                 <span class="__smallbox">@user.Role</span>
@@ -41,6 +42,9 @@
                                     <span class="__smallbox">@address.PostalCode</span>
                                     <span class="__smallbox">@address.City</span>
                                 }>
+                                <div>
+                                    <img src="~/images/users/@user.ImageUrl" alt="@user.FirstName" width="100px" height="100px" />
+                                </div>
                             </div>
 
                             <div class="modal-footer">

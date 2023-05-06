@@ -7,10 +7,12 @@ namespace WebApp.Controllers
     public class RegisterController : Controller
     {
         private readonly AuthService _auth;
+        private readonly UserService _userService;
 
-        public RegisterController(AuthService auth)
+        public RegisterController(AuthService auth, UserService userService)
         {
             _auth = auth;
+            _userService = userService;
         }
 
         public IActionResult Index()
@@ -26,8 +28,13 @@ namespace WebApp.Controllers
                 if (await _auth.ExistUserAsync(x => x.Email == model.Email))
                     ModelState.AddModelError("", "Email is already registered.");
 
-                if (await _auth.RegisterAsync(model))
-                    return RedirectToAction("Index");                
+                var user = await _auth.RegisterAsync(model);
+                if (user != null)
+                {
+                    await _userService.UploadImageAsync(user, model.ProfilePicture!);
+                    return RedirectToAction("Index");
+                }
+                           
             }
             return View(model);
         }

@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Net.WebSockets;
 using System.Security.Claims;
 using WebApp.Models.Contexts;
+using WebApp.Models.Dtos;
 using WebApp.Models.Identity;
 using WebApp.ViewModels;
 
@@ -30,7 +31,7 @@ public class AuthService
         return await _userManager.Users.AnyAsync(expression);
     }
 
-    public async Task<bool> RegisterAsync(UserRegisterViewModel model)
+    public async Task<AppUser> RegisterAsync(UserRegisterViewModel model)
     {
         try
         {
@@ -42,6 +43,9 @@ public class AuthService
 
             AppUser appUser = model;
 
+            //if (model.ProfilePicture != null)
+            //    appUser.ImageUrl = $"{appUser.Id}_{Path.GetFileName(model.ProfilePicture.FileName).Replace(" ", "_")}";
+
             var result = await _userManager.CreateAsync(appUser, model.Password);
 
             await _userManager.AddToRoleAsync(appUser, roleName);
@@ -52,13 +56,13 @@ public class AuthService
                 if (address != null)
                 {
                     await _addressService.AddAddressAsync(appUser, address);
-                    return true;
+                    return appUser;
                 }
             }           
 
-            return false;
+            return null!;
         }
-        catch { return false; }
+        catch { return null!; }
     }
 
     public async Task<bool> LoginAsync(UserLoginViewModel model)

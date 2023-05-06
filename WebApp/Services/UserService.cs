@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using WebApp.Models.Contexts;
+using WebApp.Models.Dtos;
 using WebApp.Models.Identity;
 using WebApp.Repositories;
 using WebApp.ViewModels;
@@ -18,16 +19,16 @@ public class UserService
     private readonly AddressRepository _addressRepo;
     private readonly IdentityContext _identityContext;
     private readonly UserManager<AppUser> _userManager;
-    //private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public UserService(UserRepository userRepo, UserAddressRepository userAddressRepo, IdentityContext identityContext, /*RoleManager<IdentityRole> roleManager,*/ AddressRepository addressRepo, UserManager<AppUser> userManager)
+    public UserService(UserRepository userRepo, UserAddressRepository userAddressRepo, IdentityContext identityContext, AddressRepository addressRepo, UserManager<AppUser> userManager, IWebHostEnvironment webHostEnvironment)
     {
         _userRepo = userRepo;
         _userAddressRepo = userAddressRepo;
         _addressRepo = addressRepo;
         _identityContext = identityContext;
-        //_roleManager = roleManager;
         _userManager = userManager;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     public async Task<AppUser> AddUserAsync(AppUser user)
@@ -56,6 +57,7 @@ public class UserService
                 PhoneNumber = user.PhoneNumber,
                 Company = user.CompanyName,
                 Role = string.Join(",", role),
+                ImageUrl = user.ImageUrl,
                 Addresses = addresses.Select(a => new AddressViewModel
                 {
                     StreetName = a.StreetName,
@@ -85,5 +87,18 @@ public class UserService
     public async Task<bool> DeleteUserAsync(AppUser user)
     {
         return await _userRepo.DeleteAsync(user);
+    }
+
+    public async Task<AppUser> UploadImageAsync(AppUser user, IFormFile? image)
+    {
+        try
+        {
+            string imagePath = $"{_webHostEnvironment.WebRootPath}/images/users/{user.Id}_{Path.GetFileName(image!.FileName).Replace(" ", "_")}";
+            
+            using var stream = new FileStream(imagePath, FileMode.Create);
+            await image.CopyToAsync(stream);
+            return user;
+        }
+        catch { return null!; }
     }
 }

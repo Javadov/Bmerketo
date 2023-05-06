@@ -47,9 +47,12 @@ namespace WebApp.Controllers
                 if (await _auth.ExistUserAsync(x => x.Email == model.Email))
                     ModelState.AddModelError("", "Email is already registered.");
 
-                if (await _auth.RegisterAsync(model))
+                var user = await _auth.RegisterAsync(model);
+                if (user != null)
                 {
+                    await _userService.UploadImageAsync(user, model.ProfilePicture!);
                     TempData["Message"] = "User is successfully registered.";
+                    return RedirectToAction("Index");
                 }
                 else
                 {

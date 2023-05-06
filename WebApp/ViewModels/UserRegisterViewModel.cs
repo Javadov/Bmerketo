@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Amazon.IdentityManagement.Model;
+using Microsoft.AspNetCore.Hosting;
+using System.ComponentModel.DataAnnotations;
 using WebApp.Models.Entities;
 using WebApp.Models.Identity;
 
@@ -6,6 +8,8 @@ namespace WebApp.ViewModels;
 
 public class UserRegisterViewModel
 {
+    public Guid Id { get; set; }
+
     [Display(Name = "First Name")]
     [Required(ErrorMessage = "You must enter a first name.")]
     public string FirstName { get; set; } = null!;
@@ -60,7 +64,7 @@ public class UserRegisterViewModel
 
     public static implicit operator AppUser(UserRegisterViewModel model)
     {
-        return new AppUser
+        var appUser = new AppUser
         {
             UserName = model.Email,
             FirstName = model.FirstName,
@@ -69,6 +73,14 @@ public class UserRegisterViewModel
             PhoneNumber = model.Mobile,
             CompanyName = model.CompanyName,
         };
+
+        if (model.ProfilePicture != null)
+            appUser.ImageUrl = $"{appUser.Id}_{Path.GetFileName(model.ProfilePicture.FileName).Replace(" ", "_")}";
+
+        else
+            appUser.ImageUrl = $"no-thumb.jpg";
+
+        return appUser;
     }
 
     public static implicit operator AddressEntity(UserRegisterViewModel model)
