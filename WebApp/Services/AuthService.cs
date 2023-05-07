@@ -43,9 +43,6 @@ public class AuthService
 
             AppUser appUser = model;
 
-            //if (model.ProfilePicture != null)
-            //    appUser.ImageUrl = $"{appUser.Id}_{Path.GetFileName(model.ProfilePicture.FileName).Replace(" ", "_")}";
-
             var result = await _userManager.CreateAsync(appUser, model.Password);
 
             await _userManager.AddToRoleAsync(appUser, roleName);

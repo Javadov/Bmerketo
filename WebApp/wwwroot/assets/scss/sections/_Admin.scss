@@ -455,3 +455,61 @@
         align-items: center;
     }*/
 }
+
+.__tagSelection {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    width: 100%;
+    gap: 30px;
+
+    .btn {
+        width: 150px;
+        color: white;
+        background-color: $color-gray-6;
+    }
+
+    .btnx-check {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+        background-color: bisque;
+    }
+
+    .btnx-check[disabled] + .btn, .btnx-check:disabled + .btn {
+        pointer-events: none;
+        filter: none;
+        opacity: 0.65;
+    }
+
+    .btnx-check + .btn:hover {
+        color: white;
+        background-color: $color-theme-red;
+        border-color: black;
+    }
+
+    .btnx:focus-visible {
+        color: blueviolet;
+        background-color: cadetblue;
+        border-color: greenyellow;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem;
+    }
+
+    .btnx-check:focus-visible + .btn {
+        border-color: var(--bs-btn-hover-border-color);
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem;
+    }
+
+    .btnx-check:checked + .btn, :not(.btnx-check) + .btn:active, .btnx:first-child:active, .btn.active, .btn.show {
+        color: black;
+        background-color: lightgreen;
+        border-color: black;
+    }
+
+    .btnx-check:checked + .btn:focus-visible, :not(.btnx-check) + .btn:active:focus-visible, .btn:first-child:active:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible {
+        box-shadow: 0 0 0 0.25rem;
+    }
+}
+

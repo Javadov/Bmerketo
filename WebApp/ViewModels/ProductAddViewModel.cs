@@ -15,7 +15,11 @@ public class ProductAddViewModel
     [Required(ErrorMessage = "You must enter a product price.")]
     public decimal Price { get; set; }
 
+    [Display(Name = "Description")]
     public string Description { get; set; } = null!;
+
+    [Display(Name = "Additional Info")]
+    public string AdditionalInfo { get; set; } = null!;
 
     [Display(Name = "Upload Product Images")]
     [Required(ErrorMessage = "You must add any images.")]

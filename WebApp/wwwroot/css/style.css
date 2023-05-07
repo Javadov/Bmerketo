@@ -1280,6 +1280,55 @@ html, body {
   font-weight: bold;
 }
 
+.__tagSelection {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 100%;
+  gap: 30px;
+}
+.__tagSelection .btn {
+  width: 150px;
+  color: white;
+  background-color: #C8C8C8;
+}
+.__tagSelection .btnx-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  background-color: bisque;
+}
+.__tagSelection .btnx-check[disabled] + .btn, .__tagSelection .btnx-check:disabled + .btn {
+  pointer-events: none;
+  filter: none;
+  opacity: 0.65;
+}
+.__tagSelection .btnx-check + .btn:hover {
+  color: white;
+  background-color: #FF7373;
+  border-color: black;
+}
+.__tagSelection .btnx:focus-visible {
+  color: blueviolet;
+  background-color: cadetblue;
+  border-color: greenyellow;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem;
+}
+.__tagSelection .btnx-check:focus-visible + .btn {
+  border-color: var(--bs-btn-hover-border-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem;
+}
+.__tagSelection .btnx-check:checked + .btn, .__tagSelection :not(.btnx-check) + .btn:active, .__tagSelection .btnx:first-child:active, .__tagSelection .btn.active, .__tagSelection .btn.show {
+  color: black;
+  background-color: lightgreen;
+  border-color: black;
+}
+.__tagSelection .btnx-check:checked + .btn:focus-visible, .__tagSelection :not(.btnx-check) + .btn:active:focus-visible, .__tagSelection .btn:first-child:active:focus-visible, .__tagSelection .btn.active:focus-visible, .__tagSelection .btn.show:focus-visible {
+  box-shadow: 0 0 0 0.25rem;
+}
+
 .contactus {
   margin-top: 85px;
 }

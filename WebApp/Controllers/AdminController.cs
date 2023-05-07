@@ -12,14 +12,17 @@ namespace WebApp.Controllers
     public class AdminController : Controller
     {
         private readonly UserService _userService;
-        private readonly ProductService _productService;
         private readonly AuthService _auth;
+        private readonly ProductService _productService;
+        private readonly TagService _tagService;
 
-        public AdminController(UserService userService, AuthService auth, ProductService productService)
+
+        public AdminController(UserService userService, AuthService auth, ProductService productService, TagService tagService)
         {
             _userService = userService;
             _productService = productService;
             _auth = auth;
+            _tagService = tagService;
         }
 
         public IActionResult Index()
@@ -37,7 +40,6 @@ namespace WebApp.Controllers
         {
             return View();
         }
-
 
         [HttpPost]
         public async Task<IActionResult> UserAdd(UserRegisterViewModel model)
@@ -64,7 +66,6 @@ namespace WebApp.Controllers
 
             return View(model);
         }
-
 
         public async Task<ActionResult<AppUser>> GetUserByIdAsync(string id)
         {
@@ -101,13 +102,14 @@ namespace WebApp.Controllers
             return View(products);
         }
 
-        public IActionResult ProductAdd()
+        public async Task<IActionResult> ProductAdd()
         {
+            ViewBag.Tags = await _tagService.GetTagsAsync();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProductAdd(ProductAddViewModel model)
+        public async Task<IActionResult> ProductAdd(ProductAddViewModel model, string[] tags)
         {
             if (ModelState.IsValid)
             {
