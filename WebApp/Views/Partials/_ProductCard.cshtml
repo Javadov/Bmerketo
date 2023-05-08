@@ -1,0 +1,25 @@
+﻿@model List<ProductViewModel>
+
+@foreach (var product in Model)
+{
+    <div class="__card">
+        <div class="card-img">
+            @if (product.Images.Any())
+            {
+                <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
+            }
+            <div class="card-menu">
+                <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
+                <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
+                <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
+                <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
+            </div>
+        </div>
+        <div class="__card-body">
+            <a href="../product/@product.ProductId" class="button-quick-view">
+                @product.Name
+            </a>
+            <h5 class="product-price"><span> </span> @product.Price</h5>
+        </div>
+    </div>
+}

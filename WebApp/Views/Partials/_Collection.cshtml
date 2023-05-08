@@ -14,10 +14,7 @@
         </ul>
 
         <ul class="filter-container products">
-            {
-            products.allProducts.slice(0, limit).map(product => (
-            <ProductCard key={product._id} product={product} />))
-            }
+            <partial name="/Views/Partials/_ProductCard.cshtml" />
         </ul>
 
         <div>

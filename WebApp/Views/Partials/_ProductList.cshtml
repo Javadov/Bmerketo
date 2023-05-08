@@ -8,14 +8,14 @@
                 @foreach (var tag in product.Tags)
                 {
                     @tag.Tag
-                }>       
+                }     
         </span>
         <span class="__mediumbox">
             
                 @foreach (var category in product.Categories)
                 {
                     @category.Category
-                }>            
+                }>           
         </span>
         <span class="__largebox">@product.Name</span>
         <div class="__extraspan __largebox">
@@ -24,7 +24,7 @@
                 @foreach (var images in product.Images)
                 {
                    <img src="~/images/products/@images.ImageUrl" alt="@product.Name" width="100px" height="100px" />                
-                }>
+                }
             </div>
         </div>
         <span class="__smallbox">@product.Price</span>
