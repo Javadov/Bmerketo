@@ -1,16 +1,13 @@
-﻿using Amazon.EC2.Model;
-using Amazon.IdentityManagement.Model;
-using Microsoft.EntityFrameworkCore;
-using WebApp.Models.Identity;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Models.Entities;
 
 [PrimaryKey(nameof(ProductId), nameof(CategoryId))]
 public class ProductCategoryEntity
 {
-    public string ProductId { get; set; } = null!;
-    public ProductEntity Products { get; set; } = null!;
+    public Guid ProductId { get; set; }
+    public ProductEntity Product { get; set; } = null!;
 
     public int CategoryId { get; set; }
-    public CategoryEntity Categories { get; set; } = null!;
+    public CategoryEntity Category { get; set; } = null!;
 }

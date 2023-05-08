@@ -6,7 +6,7 @@
 <div class="__admin">
     <div class="container">
         <form id='registerForm' enctype="multipart/form-data" method="post">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a new User</h1>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a new Product</h1>
 
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -26,50 +26,45 @@
 
             <div class="__input">
                 <div class="userdetails">
-                    <label asp-for="Description">Description *</label>
-                    <input asp-for="Description" required />
+                    <label asp-for="Description">Description (Optional</label>
+                    <input asp-for="Description" />
                     <small class="text-danger"><span asp-validation-for="Description"></span></small>
                 </div>
             </div>
 
             <div class="__input">
                 <div class="userdetails">
-                    <label asp-for="AdditionalInfo">Description *</label>
-                    <input asp-for="AdditionalInfo" required />
+                    <label asp-for="AdditionalInfo">Additional Info (Optional)</label>
+                    <input asp-for="AdditionalInfo" />
                     <small class="text-danger"><span asp-validation-for="AdditionalInfo"></span></small>
                 </div>
             </div>
 
             <div class="__input">
                 <div class="userdetails">
-@*                    <select name="Tags[]" multiple class="form-select" aria-label="Default select example">
-                        @foreach(SelectListItem tag in ViewBag.Tags)
-                        {
-                            <option value="@tag.Value" >@tag.Text</option>
-                        }
-                    </select>*@
+                    <div class="__categorySelection">
+                        <select name="Category" class="form-select" aria-label="Default select example">
+                            <option selected disabled>Select Category *</option>
+                            @foreach (SelectListItem category in ViewBag.Categories)
+                            {                                
+                                <option value="@category.Value">@category.Text</option>
+                            }
+                        </select>
 
-                   @* @Html.DropDownList("tags", (SelectList)ViewBag.tags, "Select Tag", new { @class = "form-control" })*@
+                        @*  @Html.DropDownList("categories", (SelectList)ViewBag.Categories, "Select Category", new { @class = "form-control" })*@
 
-@*                    @foreach(SelectListItem tag in ViewBag.Tags)
-                    {
-                        <div>
-                            <input type="checkbox" name="Tags" value="@tag.Value" checked="@tag.Selected" class="form-check-input"/>
-                            <label for="@tag.Value" class="form-check-input">@tag.Text</label>
-                        </div>
-                    }*@
-                </div>
-            </div>
-
-            <div class="__input">
-                <div class="__tagSelection">
-                     @foreach(SelectListItem tag in ViewBag.Tags)
-                    {
-                    <div>
-                        <input type="checkbox" name="Tags" id="@tag.Text-@tag.Value" class="btnx-check" value="@tag.Value" @*id="btn-check-2"*@ @*checked="@tag.Selected"*@ autocomplete="on">
-                        <label class="btn btn-primary" for="@tag.Text-@tag.Value">@tag.Text</label>
                     </div>
-                    }
+                </div>
+                <div class="userdetails">
+                    <div class="__tagSelection">
+                        @foreach (SelectListItem tag in ViewBag.Tags)
+                        {
+                            <div>
+                                <input type="checkbox" name="Tags" id="@tag.Text-@tag.Value" class="btnx-check" value="@tag.Value" @*id="btn-check-2"*@ @*checked="@tag.Selected"*@ autocomplete="on">
+                                <label class="btn btn-primary" for="@tag.Text-@tag.Value">@tag.Text</label>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
 

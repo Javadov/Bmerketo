@@ -1,19 +1,19 @@
-﻿using WebApp.Models.Dtos;
-
+﻿using System.ComponentModel.DataAnnotations;
+using WebApp.Models.Dtos;
 namespace WebApp.Models.Entities;
 
 public class ProductEntity
 {
+    [Key]
     public Guid Id { get; set; }
     public string Name { get; set; } = null!;
     public decimal Price { get; set; }
-    public float Rating { get; set; }
     public string? Description { get; set; }
-    public string? AdditionalInfo { get; set; }
-    public string? Review { get; set; } = null!;
-    public ICollection<ProductImagesEntity> Images { get; set; } = null!;
-    public ICollection<ProductCategoryEntity> Categories { get; set; } = null!;
-    public ICollection<ProductTagEntity> Tags { get; set; } = null!;
+    public string? AdditionalInfo { get; set; }    
+    public ICollection<ProductImagesEntity> Images { get; set; } = new HashSet<ProductImagesEntity>();
+    public ICollection<ProductCategoryEntity> Categories { get; set; } = new HashSet<ProductCategoryEntity>();
+    public ICollection<ProductTagEntity> Tags { get; set; } = new HashSet<ProductTagEntity>();
+    public ICollection<ProductReviewsEntity> Reviews { get; set; } = new HashSet<ProductReviewsEntity>();
 
     public static implicit operator Product(ProductEntity entity)
     {
@@ -22,10 +22,12 @@ public class ProductEntity
             Id = entity.Id,
             Name = entity.Name,
             Price = entity.Price,
-            Rating = entity.Rating,
+            Description = entity.Description!,
+            AdditionalInfo = entity.AdditionalInfo!,
             Images = entity.Images,
             Categories = entity.Categories,
-            Tags = entity.Tags
+            Tags = entity.Tags,
+            Reviews = entity.Reviews,
         };
     }
 }

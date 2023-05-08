@@ -4,8 +4,19 @@
 {
     <div class="__products" role="group" aria-label="Button group with nested dropdown">
         <span class="__smallbox"><p>@product.ProductId</p>ID</span>
-        <span class="__mediumbox">{product._tag}</span>
-        <span class="__mediumbox">{product._category}</span>
+        <span class="__mediumbox">
+                @foreach (var tag in product.Tags)
+                {
+                    @tag.Tag
+                }>       
+        </span>
+        <span class="__mediumbox">
+            
+                @foreach (var category in product.Categories)
+                {
+                    @category.Category
+                }>            
+        </span>
         <span class="__largebox">@product.Name</span>
         <div class="__extraspan __largebox">
             Show Product Image
@@ -16,7 +27,6 @@
                 }>
             </div>
         </div>
-        <span class="__smallbox">@product.Rating</span>
         <span class="__smallbox">@product.Price</span>
         <span class="__mediumbox">@product.Description</span>
 

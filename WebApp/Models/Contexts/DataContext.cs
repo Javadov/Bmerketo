@@ -28,5 +28,6 @@ public class DataContext : DbContext
     public DbSet<ProductCategoryEntity> ProductCategories { get; set; }
     public DbSet<TagEntity> Tags { get; set; }
     public DbSet<ProductTagEntity> ProductTags{ get; set; }
+    public DbSet<ProductReviewsEntity> ProductReviews { get; set; }
     #endregion
 }

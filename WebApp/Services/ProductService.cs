@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using WebApp.Models.Contexts;
 using WebApp.Models.Dtos;
 using WebApp.Models.Entities;
-using WebApp.Models.Identity;
 using WebApp.Repositories;
 using WebApp.ViewModels;
 
@@ -13,15 +12,19 @@ public class ProductService
 {
     private readonly ProductRepository _productRepo;
     private readonly ProductImagesRepository _productImagesRepo;
+    private readonly ProductTagRepository _productTagRepo;
+    private readonly ProductCategoryRepository _productCategoryRepo;
     private readonly DataContext _dataContext;
     private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public ProductService(ProductRepository productRepo, ProductImagesRepository productImagesRepo, IWebHostEnvironment webHostEnvironment, DataContext dataContext)
+    public ProductService(ProductRepository productRepo, ProductImagesRepository productImagesRepo, IWebHostEnvironment webHostEnvironment, DataContext dataContext, ProductTagRepository productTagRepo, ProductCategoryRepository productCategoryRepo)
     {
         _productRepo = productRepo;
         _productImagesRepo = productImagesRepo;
         _webHostEnvironment = webHostEnvironment;
         _dataContext = dataContext;
+        _productTagRepo = productTagRepo;
+        _productCategoryRepo = productCategoryRepo;
     }
 
     public async Task<ProductEntity> AddProductAsync(ProductEntity product)
@@ -39,6 +42,7 @@ public class ProductService
                 Name = model.Name,
                 Price = model.Price,
                 Description = model.Description,
+                AdditionalInfo = model.AdditionalInfo,
                 Images = new List<ProductImagesEntity>()
             };
 
@@ -79,6 +83,30 @@ public class ProductService
         catch {return false;}
     }
 
+    public async Task AddTagsAsync(Product product, string[] tags)
+    {
+        foreach(var tag in tags)
+        {
+            await _productTagRepo.AddAsync(new ProductTagEntity
+            {
+                ProductId = product.Id,
+                TagId = int.Parse(tag)
+            });
+        }
+    }
+
+    public async Task AddCategoryAsync(Product product, string[] categories)
+    {
+        foreach (var category in categories)
+        {
+            await _productCategoryRepo.AddAsync(new ProductCategoryEntity
+            {
+                ProductId = product.Id,
+                CategoryId = int.Parse(category)
+            });
+        }
+    }
+
     public async Task<IEnumerable<ProductViewModel>> GetAllProductsAsync()
     {
         var products = new List<ProductViewModel>();
@@ -87,6 +115,8 @@ public class ProductService
 
         foreach (var product in _products)
         {
+            var categories = await _dataContext.ProductCategories.Where(x => x.ProductId == product.Id).Select(x => x.Category).ToListAsync();
+            var tags = await _dataContext.ProductTags.Where(x => x.ProductId == product.Id).Select(x => x.Tag).ToListAsync();
             var images = await _dataContext.ProductImages.Where(x => x.ProductId == product.Id).Select(x => x.ImageUrl).ToListAsync();
 
             var productViewModel = new ProductViewModel
@@ -94,10 +124,17 @@ public class ProductService
                 ProductId = product.Id,
                 Name = product.Name,
                 Price = product.Price,
-                Rating = product.Rating,
                 Images = images.Select(i => new ProductImagesViewModel
                 {
                     ImageUrl = i!
+                }),
+                Categories = categories.Select(c => new ProductCategoryViewModel
+                {
+                    Category = c.Category
+                }),
+                Tags = tags.Select(t => new ProductTagViewModel
+                {
+                    Tag = t.Tag
                 })
             };
 

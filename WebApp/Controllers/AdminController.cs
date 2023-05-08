@@ -15,14 +15,16 @@ namespace WebApp.Controllers
         private readonly AuthService _auth;
         private readonly ProductService _productService;
         private readonly TagService _tagService;
+        private readonly CategoryService _categoryService;
 
 
-        public AdminController(UserService userService, AuthService auth, ProductService productService, TagService tagService)
+        public AdminController(UserService userService, AuthService auth, ProductService productService, TagService tagService, CategoryService categoryService)
         {
             _userService = userService;
             _productService = productService;
             _auth = auth;
             _tagService = tagService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
@@ -104,12 +106,13 @@ namespace WebApp.Controllers
 
         public async Task<IActionResult> ProductAdd()
         {
-            ViewBag.Tags = await _tagService.GetTagsAsync();
+            ViewBag.Categories = await _categoryService.GetCategoriesAsync();
+            ViewBag.Tags = await _tagService.GetTagsAsync();            
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProductAdd(ProductAddViewModel model, string[] tags)
+        public async Task<IActionResult> ProductAdd(ProductAddViewModel model, string[] category, string[] tags)
         {
             if (ModelState.IsValid)
             {
@@ -118,13 +121,17 @@ namespace WebApp.Controllers
                if (product != null)
                {
                     await _productService.UploadImageAsync(product, model.Image!);
+                    await _productService.AddCategoryAsync(product, category);
+                    await _productService.AddTagsAsync(product, tags);
                     TempData["Message"] = "Product is successfully added.";
                     return RedirectToAction("products");
-                }
+               }
 
                 ModelState.AddModelError("", "Something went wrong");
             }
 
+            ViewBag.Tags = await _tagService.GetTagsAsync();
+            ViewBag.Categories = await _categoryService.GetCategoriesAsync();
             return View(model);
         }
          

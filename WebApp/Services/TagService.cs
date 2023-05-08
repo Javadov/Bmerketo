@@ -27,4 +27,21 @@ public class TagService
 
         return tags;
     }
+
+    public async Task<List<SelectListItem>> GetTagsAsync(string[] selectedTags)
+    {
+        var tags = new List<SelectListItem>();
+
+        foreach (var tag in await _tagRepo.GetAllAsync())
+        {
+            tags.Add(new SelectListItem
+            {
+                Value = tag.Id.ToString(),
+                Text = tag.Tag,
+                Selected = selectedTags.Contains(tag.Id.ToString())
+            });
+        }
+
+        return tags;
+    }
 }
