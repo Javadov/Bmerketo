@@ -1,4 +1,13 @@
-﻿<section class="__collection">
+﻿@model List<ProductViewModel>
+
+@{
+    // Set default number of products to display
+    var productsToDisplay = 8;
+}
+
+
+
+<section class="__collection">
     <div class="container">
         <h3>Best Collection</h3>
         <ul>
@@ -14,14 +23,50 @@
         </ul>
 
         <ul class="filter-container products">
-            <partial name="/Views/Partials/_ProductCard.cshtml" />
+           @* <partial name="/Views/Partials/_ProductCard.cshtml" />*@
+
+            @foreach (var product in Model.Take(productsToDisplay))
+            {
+                <div class="__card">
+                    <div class="card-img">
+                        @if (product.Images.Any())
+                        {
+                            <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
+                        }
+                        <div class="card-menu">
+                            <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
+                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
+                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
+                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <div class="__card-body">
+                        <a href="../product/@product.ProductId" class="button-quick-view">
+                            @product.Name
+                        </a>
+                        <h5 class="product-price"><span> </span> @product.Price</h5>
+                    </div>
+                </div>
+            }
         </ul>
 
         <div>
-            {
-            limit < products.allProducts.length && (<button onClick={handleLoadMore}>Load More</button>)
-            }
+            <button id="load-more">Load More</button>
         </div>
 
     </div>
 </section>
+
+<script>
+    // Get a reference to the Load More button
+    var loadMoreButton = document.getElementById("load-more");
+
+    // Attach a click event listener to the Load More button
+    loadMoreButton.addEventListener("click", function () {
+        // Increment the number of products to display
+        productsToDisplay += 4;
+
+        // Re-render the products with the updated number of products to display
+        // You can use your preferred way of doing this, for example with AJAX or by submitting a form
+    });
+</script>

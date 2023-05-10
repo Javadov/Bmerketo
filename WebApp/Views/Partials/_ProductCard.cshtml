@@ -1,6 +1,6 @@
 ﻿@model List<ProductViewModel>
 
-@foreach (var product in Model)
+@foreach (var product in Model.Take(8))
 {
     <div class="__card">
         <div class="card-img">

@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WebApp.Models.Contexts;
+using WebApp.Models.Dtos;
 using WebApp.Services;
+using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
@@ -23,7 +26,7 @@ namespace WebApp.Controllers
         }
 
         public IActionResult Privacy()
-        {
+        {    
             return View();
         }
     }
