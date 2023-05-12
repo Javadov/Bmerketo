@@ -50,9 +50,6 @@
                                 <option value="@category.Value">@category.Text</option>
                             }
                         </select>
-
-                        @*  @Html.DropDownList("categories", (SelectList)ViewBag.Categories, "Select Category", new { @class = "form-control" })*@
-
                     </div>
                 </div>
                 <div class="userdetails">
@@ -72,13 +69,13 @@
                 <label asp-for="Image">Upload Product Image(s) *</label>
                 <input asp-for="Image" multiple required />
             </div>
-
+@*
             @if (TempData["Message"] != null)
             {
                 <div class="alert alert-success">
                     @TempData["Message"]
                 </div>
-            }
+            }*@
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Create</button>

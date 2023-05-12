@@ -1,24 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApp.Models.Contexts;
+using WebApp.Services;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
 public class ProductController : Controller
 {
-    private readonly DataContext db;
+    private readonly ProductService _productService;
 
-    public ProductController(DataContext db)
+    public ProductController(ProductService productService)
     {
-        this.db = db;
+        _productService = productService;
     }
 
-    public IActionResult Index(Guid ID)
+    public IActionResult Index()
     {
+        return RedirectToAction("home", "index");
+    }
 
-        //ProductsViewModel model = new ProductsViewModel();
-        //model.Product = db.Products.Where(x => x.Id = ID);
+    // GET: /Product?id={id}
+    [HttpGet]
+    public async Task<IActionResult> Index(Guid articlenumber)
+    {
+        var product = await _productService.GetProductAsync(articlenumber);
+        if (product != null)
+        {
+            return View(product);
+        }
 
-        return View();
+        return RedirectToAction("home", "index");
     }
 }

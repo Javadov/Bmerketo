@@ -3,8 +3,68 @@
 }
 @model ProductViewModel
 
-<div>
-    Product Details - TEST
 
-    ID - @Model.ProductId
+<div class="__productsignal">
+    <div class="container">
+        <div class="__productdetailsbox">
+            <div class="__productimages">
+                <div class="container">
+                    <ul class="slides">
+                        @foreach (var images in @Model.Images)
+                        {
+                        <li id="@images.ImageUrl"><img src="~/images/products/@images.ImageUrl" class="product-image" alt="@Model.Name" /></li>
+                        }
+                    </ul>
+
+                    <ul class="thumbnails">                       
+                        @foreach (var images in @Model.Images) 
+                        {
+                        <li>
+                            <a href="#@images.ImageUrl" ><img src="~/images/products/@images.ImageUrl" class="product-image" alt="@Model.Name" /></a>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="__productdetails">
+                <h1>@Model.Name</h1>
+                <div class="__productartnr">
+                    @foreach (var category in @Model.Categories)
+                    {
+                        <p>SKU: 12345670</p> <p>Category: @category.Category</p>
+                    }
+                </div>                    
+
+                <h2>$ @Model.Price</h2>
+                <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. <a href="#">(read more)</a></p>
+                <div class="__productsize">
+                    <h1>Size:</h1>
+
+                </div>
+                <div class="__productcolor">
+                    <h1>Color:</h1>
+
+                </div>
+                <div class="__productquantity">
+                    <span>
+                        <h1>Qty:</h1>
+
+                    </span>
+                    <button type='submit' class='button-add-to-cart' ><span>ADD TO CART</span></button>
+                </div>
+                <div class="__productshare">
+                    <h1>Share:</h1>
+                    <div class="__shareline">
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ExtraDetails />
+    </div>
 </div>
