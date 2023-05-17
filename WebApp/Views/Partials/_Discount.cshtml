@@ -1,0 +1,34 @@
+﻿@model List<ProductViewModel>
+
+@{
+    // Set default number of products to display
+    var productsToDisplay = 3;
+}
+
+<section class="__discount">
+    <div class="container">
+        @foreach (var product in Model.Take(productsToDisplay))
+        {
+            <div class="__cardx">
+                <div class="card-img">
+                    @if (product.Images.Any())
+                    {
+                        <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
+                    }
+                    <div class="card-menu">
+                        <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
+                        <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
+                        <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
+                        <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
+                    </div>
+                </div>
+                <div class="__card-body carousel-caption">
+                    <a asp-controller="product" asp-action="index" asp-route-articlenumber="@product.ProductId" class="button-quick-view">
+                        @product.Name
+                    </a>
+                    <h5 class="product-price"><span> </span> @product.Price</h5>
+                </div>
+            </div>
+        }
+    </div>
+</section>  
