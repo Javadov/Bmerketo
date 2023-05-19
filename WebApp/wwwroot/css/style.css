@@ -759,26 +759,31 @@ html, body {
   justify-content: space-between;
   align-items: center;
 }
+.__discount > .container h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: auto auto 30px auto;
+}
 .__discount > .container .__cardx {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
   text-align: center;
-  width: 362px;
-  height: 427px;
+  width: 369px;
+  height: 430px;
   margin: 80px auto;
   border: 1px solid #F8F8F8;
 }
-.__discount > .container .__cardx .__card-img {
+.__discount > .container .__cardx .__cardx-img {
   position: relative;
-  width: 362px;
-  height: 304px;
+  width: 369px;
+  height: 310px;
   overflow: hidden;
 }
-.__discount > .container .__cardx .__card-img img {
-  width: 100%;
-  height: 100%;
+.__discount > .container .__cardx .__cardx-img img {
+  width: 369px;
+  height: 310px;
   object-fit: cover;
   object-position: top;
 }
@@ -786,14 +791,16 @@ html, body {
   text-align: left;
   border-bottom: 1px solid #F8F8F8;
 }
-.__discount > .container .__cardx .__product-name h4 {
+.__discount > .container .__cardx .__product-name a {
   font-size: 1.125rem;
   font-weight: 500;
   text-transform: lowercase;
   text-align: left;
   margin: 0 0 15px 20px;
+  text-decoration: none;
+  color: black;
 }
-.__discount > .container .__cardx .__product-name h4::first-line {
+.__discount > .container .__cardx .__product-name a::first-line {
   text-transform: capitalize;
 }
 .__discount > .container .__cardx .__product-price h5 {
@@ -805,6 +812,132 @@ html, body {
 }
 .__discount > .container .__cardx .__product-price h5 span {
   text-decoration: line-through;
+}
+
+.__bestSelling {
+  margin-top: 60px;
+}
+.__bestSelling > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.__bestSelling > .container h3 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin: auto auto 30px auto;
+}
+.__bestSelling > .container .item {
+  display: flex;
+}
+.__bestSelling .containerx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 1920px;
+  overflow-wrap: anywhere;
+}
+.__bestSelling .containerx .owl-carousel {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.__bestSelling .containerx .owl-carousel .owl-stage {
+  overflow: hidden;
+}
+.__bestSelling .containerx .owl-carousel .owl-nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.__bestSelling .containerx .owl-carousel .owl-nav button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black !important;
+  border-radius: 5px;
+  margin: 10px !important;
+}
+.__bestSelling .containerx .owl-carousel .owl-nav button span {
+  font-size: 24px;
+}
+
+.__blog {
+  margin-top: 60px;
+  height: 587px;
+}
+.__blog > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.__blog > .container h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: auto auto 30px auto;
+}
+.__blog > .container .__cardx {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  text-align: center;
+  width: 369px;
+  height: 430px;
+  margin: 80px auto;
+  border: 1px solid #F8F8F8;
+}
+.__blog > .container .__cardx .__cardx-img {
+  position: relative;
+  width: 369px;
+  height: 310px;
+  overflow: hidden;
+}
+.__blog > .container .__cardx .__cardx-img img {
+  width: 369px;
+  height: 310px;
+  object-fit: cover;
+  object-position: top;
+}
+.__blog > .container .__cardx .__product-name {
+  text-align: left;
+  border-bottom: 1px solid #F8F8F8;
+}
+.__blog > .container .__cardx .__product-name a {
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  text-align: left;
+  margin: 0 0 15px 20px;
+  text-decoration: none;
+  color: black;
+}
+.__blog > .container .__cardx .__product-name a::first-line {
+  text-transform: capitalize;
+}
+.__blog > .container .__cardx .__product-price h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #636363;
+  text-align: left;
+  margin: 0 0 15px 20px;
+}
+.__blog > .container .__cardx .__product-price h5 span {
+  text-decoration: line-through;
+}
+
+.__subscribe {
+  margin-top: 92px;
+  height: 368px;
+  background-color: #CCCCCC;
+}
+.__subscribe > .container {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer {

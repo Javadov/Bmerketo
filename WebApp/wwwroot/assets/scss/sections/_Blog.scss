@@ -1,9 +1,8 @@
-@import '../general/_variables.scss';
+﻿@import '../general/_variables.scss';
 
-.__discount {
+.__blog {
     margin-top: 60px;
     height: 587px;
-    background-color: $color-pink;
 
     & > .container {
         display: flex;
@@ -76,4 +75,4 @@
             }
         }
     }
-} 
+}

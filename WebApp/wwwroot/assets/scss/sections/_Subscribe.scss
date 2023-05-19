@@ -1,0 +1,15 @@
+﻿@import '../general/_variables.scss';
+
+.__subscribe {
+    margin-top: 92px;
+    height: 368px;
+    background-color: $color-gray-7;
+
+    & > .container {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+}

@@ -1,69 +1,40 @@
 ﻿@model List<ProductViewModel>
 
-@{
+@*@{
     // Set default number of products to display
     var productsToDisplay = 8;
-}
-<section class="__discount">
+}*@
+
+<section class="__bestSelling">
     <div class="container">
-        <div class="carousel slide" id="myCarousel">
-            <div class="carousel-inner">
-                <div class="item active">
-                    @foreach (var product in Model.Take(productsToDisplay))
-                    {
-                        <div class="__card" >
-                            <div class="card-img">
-                                @if (product.Images.Any())
-                                {
-                                    <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
-                                }
-                                <div class="card-menu">
-                                    <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
-                                    <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
-                                    <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
-                                    <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
-                                </div>
-                            </div>
-                            <div class="__card-body carousel-caption">
-                                <a asp-controller="product" asp-action="index" asp-route-articlenumber="@product.ProductId" class="button-quick-view">
-                                    @product.Name
-                                </a>
-                                <h5 class="product-price"><span> </span> @product.Price</h5>
-                            </div>
+        <h3>Top selling products in this week</h3>       
+    </div>
+
+    <div class="containerx">
+        <div class="owl-carousel">
+            @foreach (var product in Model)
+            {
+                <div class="__card">
+                    <div class="card-img">
+                        @if (product.Images.Any())
+                        {
+                            <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
+                        }
+                        <div class="card-menu">
+                            <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
+                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
+                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
+                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
                         </div>
-                    }
+                    </div>
+                    <div class="__card-body">
+                        <a asp-controller="product" asp-action="index" asp-route-articlenumber="@product.ProductId" class="button-quick-view">
+                            @product.Name
+                        </a>
+                        <h5 class="product-price"><span> </span> @product.Price</h5>
+                    </div>
                 </div>
-                <div class="item">
-                    @foreach (var product in Model.Take(productsToDisplay))
-                    {
-                        <div class="__card">
-                            <div class="card-img">
-                                @if (product.Images.Any())
-                                {
-                                    <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
-                                }
-                                <div class="card-menu">
-                                    <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
-                                    <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
-                                    <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
-                                    <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
-                                </div>
-                            </div>
-                            <div class="__card-body carousel-caption">
-                                <a asp-controller="product" asp-action="index" asp-route-articlenumber="@product.ProductId" class="button-quick-view">
-                                    @product.Name
-                                </a>
-                                <h5 class="product-price"><span> </span> @product.Price</h5>
-                            </div>
-                        </div>
-                    }
-                </div>
-        
-                <div class="control-box">                            
-                    <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
-                    <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
-                </div>                           
-            </div>        
+            }
         </div>
     </div>
-</section>  
+</section>
