@@ -25,18 +25,17 @@
         justify-content: center;
         align-items: center;
         margin: auto;
-        width: 1920px;
-        overflow-wrap: anywhere;
 
         .owl-carousel {
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
             align-items: center !important;
+            overflow: hidden;
 
-
-            .owl-stage {
-                overflow: hidden;
+            & .owl-stage-outer {
+                display: flex !important;
+                gap: 15px !important;
             }
 
             .owl-nav {
@@ -57,5 +56,29 @@
                 }
             }
         }
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+    .containerx {
+        width: 768px; /* Adjust the padding as needed */
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1199px) {
+    .containerx {
+        width: 1170px; /* Adjust the padding as needed */
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+    .containerx {
+        width: 1500px; /* Adjust the padding as needed */
+    }
+}
+
+@media only screen and (min-width: 1920px) and (max-width: 5000px) {
+    .containerx {
+        width: 1920px; /* Adjust the padding as needed */
     }
 }

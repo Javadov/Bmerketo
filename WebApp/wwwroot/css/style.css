@@ -62,7 +62,7 @@ html, body {
 .button-red {
   display: inline-block;
   position: relative;
-  background: #FF7373;
+  background: #FA3150;
   border: none;
   color: #fff;
   font-size: 18px;
@@ -340,7 +340,7 @@ html, body {
   transition: all 0.2s ease-in-out;
 }
 .breadcrumb > .container .list li a:hover {
-  color: #FF7373;
+  color: #FA3150;
 }
 .breadcrumb > .container .list li + li::before {
   content: ".";
@@ -546,7 +546,7 @@ html, body {
   margin: 1rem 1.4rem 1rem 1.4rem;
 }
 .__navbar > .container .pages > a:hover {
-  color: #FF7373;
+  color: #FA3150;
   transition: 0.2s all ease-in-out;
 }
 .__navbar > .container .pages .__login {
@@ -555,7 +555,7 @@ html, body {
   margin: 1rem 0.7rem 1rem 0.7rem;
 }
 .__navbar > .container .pages .active {
-  color: #FF7373;
+  color: #FA3150;
 }
 .__navbar > .container .pages .navicon {
   border: none;
@@ -573,7 +573,7 @@ html, body {
   color: red;
 }
 .__navbar > .container .pages .navicon .notification {
-  background-color: #FF7373;
+  background-color: #FA3150;
   font-size: 10px;
   position: absolute;
   top: 2px;
@@ -734,7 +734,7 @@ html, body {
   padding-left: 5px;
 }
 .__card .__card-body span {
-  color: #FF7373;
+  color: #FA3150;
 }
 .__card .__card-body .product-price {
   font-size: 1rem;
@@ -836,17 +836,17 @@ html, body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 1920px;
-  overflow-wrap: anywhere;
 }
 .__bestSelling .containerx .owl-carousel {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
-}
-.__bestSelling .containerx .owl-carousel .owl-stage {
   overflow: hidden;
+}
+.__bestSelling .containerx .owl-carousel .owl-stage-outer {
+  display: flex !important;
+  gap: 15px !important;
 }
 .__bestSelling .containerx .owl-carousel .owl-nav {
   display: flex !important;
@@ -864,6 +864,26 @@ html, body {
   font-size: 24px;
 }
 
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .containerx {
+    width: 768px; /* Adjust the padding as needed */
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1199px) {
+  .containerx {
+    width: 1170px; /* Adjust the padding as needed */
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+  .containerx {
+    width: 1500px; /* Adjust the padding as needed */
+  }
+}
+@media only screen and (min-width: 1920px) and (max-width: 5000px) {
+  .containerx {
+    width: 1920px; /* Adjust the padding as needed */
+  }
+}
 .__blog {
   margin-top: 60px;
   height: 587px;
@@ -1184,7 +1204,7 @@ html, body {
 .__productsignal > .container .__productdetailsbox .__productdetails .__productquantity .button-add-to-cart {
   display: inline-block;
   position: relative;
-  background: #FF7373;
+  background: #FA3150;
   border: none;
   color: #fff;
   width: 207px;
@@ -1257,7 +1277,7 @@ html, body {
   margin: 0;
 }
 .__productsignal > .container .__productdetailsbox .__productdetails span {
-  color: #FF7373;
+  color: #FA3150;
 }
 .__productsignal > .container .__productdetailsbox .__productdetails .__productsize {
   display: flex;
@@ -1275,7 +1295,7 @@ html, body {
   visibility: hidden;
 }
 .__productsignal > .container .__productdetailsbox .__productdetails .__productsize input[type=radio]:checked + label {
-  background-color: #FF7373;
+  background-color: #FA3150;
 }
 .__productsignal > .container .__productdetailsbox .__productdetails .__productsize label {
   text-align: center;
@@ -1309,14 +1329,14 @@ html, body {
   margin-top: 55px;
 }
 .__productsignal > .container .__extradetails .tabs {
-  display: flex;
-  justify-content: space-between;
+  display: flex !important;
+  justify-content: space-between !important;
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
 }
-.__productsignal > .container .__extradetails .tabs button {
-  flex: 1;
+.__productsignal > .container .__extradetails .tabs .nav-link {
+  flex: 1 !important;
   height: 50px;
   background-color: white;
   color: #636363;
@@ -1327,15 +1347,15 @@ html, body {
   display: inline-block;
   border: 1px solid #AEAEAE;
 }
-.__productsignal > .container .__extradetails .tabs button:disabled {
-  background-color: #FF7373;
+.__productsignal > .container .__extradetails .tabs .nav-link:hover {
+  color: #FA3150;
+}
+.__productsignal > .container .__extradetails .tabs button[aria-selected=true] {
+  background-color: #FA3150;
   color: white;
 }
-.__productsignal > .container .__extradetails .tabs button:disabled:hover {
+.__productsignal > .container .__extradetails .tabs button[aria-selected=true]:hover {
   color: white;
-}
-.__productsignal > .container .__extradetails .tabs button:hover {
-  color: #FF7373;
 }
 .__productsignal > .container .__extradetails .content {
   padding: 30px 0;
@@ -1442,7 +1462,7 @@ html, body {
   text-decoration: none;
 }
 .__loginsection > .container .__contactbox #loginForm .errorMessage {
-  color: #FF7373;
+  color: #FA3150;
   font-size: 0.875rem;
   font-weight: 400;
 }
@@ -1466,7 +1486,7 @@ html, body {
 .__loginsection > .container .thankyou {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #FF7373;
+  color: #FA3150;
 }
 
 .__registersection {
@@ -1493,7 +1513,7 @@ html, body {
 .__registersection > .container .thankyou {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #FF7373;
+  color: #FA3150;
 }
 
 #registerForm .__input {
@@ -1525,7 +1545,7 @@ html, body {
   text-decoration: none;
 }
 #registerForm .errorMessage {
-  color: #FF7373;
+  color: #FA3150;
   font-size: 0.875rem;
   font-weight: 400;
 }
@@ -1605,7 +1625,7 @@ html, body {
 .__admin > .container .__manageusers a, .__admin > .container .__manageproducts a {
   font-size: 1.125rem;
   font-weight: bold;
-  background-color: #FF7373;
+  background-color: #FA3150;
   color: white;
   text-align: center;
   height: 50px;
@@ -1628,7 +1648,7 @@ html, body {
   padding: 11px;
 }
 .__admin > .container .modal-body {
-  color: #FF7373;
+  color: #FA3150;
 }
 .__admin > .container .__userpanel {
   display: flex;
@@ -1654,7 +1674,7 @@ html, body {
 .__listheader .__rubrik span {
   font-size: 1rem;
   font-weight: bold;
-  background-color: #FF7373;
+  background-color: #FA3150;
   color: rgb(253, 246, 246);
   text-align: center;
   border: 1px black solid;
@@ -1817,7 +1837,7 @@ html, body {
 .__productslist .__rubrik span {
   font-size: 1rem;
   font-weight: bold;
-  background-color: #FF7373;
+  background-color: #FA3150;
   color: rgb(253, 246, 246);
   text-align: center;
   border: 1px black solid;
@@ -1987,7 +2007,7 @@ html, body {
 }
 .__tagSelection .btnx-check + .btn:hover {
   color: white;
-  background-color: #FF7373;
+  background-color: #FA3150;
   border-color: black;
 }
 .__tagSelection .btnx:focus-visible {
@@ -2072,7 +2092,7 @@ html, body {
   border: none;
 }
 .contactus > .container .__contactbox #commentForm .errorMessage {
-  color: #FF7373;
+  color: #FA3150;
   font-size: 0.875rem;
   font-weight: 400;
 }
@@ -2096,5 +2116,5 @@ html, body {
 .contactus > .container .thankyou {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #FF7373;
+  color: #FA3150;
 }

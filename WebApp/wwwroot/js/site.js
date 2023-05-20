@@ -1,9 +1,4 @@
-﻿//// Carousel Auto-Cycle
-//  $(document).ready(function() {
-//    $('.carousel').carousel({
-//      interval: 6000
-//    })
-//  });
+﻿
 
 //var loadMoreButton = document.getElementById("load-more");
 
@@ -20,7 +15,7 @@
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         items: 6, // Number of items to show at a time
-        loop: false, // Infinite loop
+        loop: true, // Infinite loop
         margin: 10, // Space between items
         nav: true, // Navigation arrows
         responsive: {
