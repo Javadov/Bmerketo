@@ -29,32 +29,51 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <span class="__mediumbox">@user.FirstName</span>
-                                <span class="__mediumbox">@user.LastName</span>
-                                <span class="__smallbox">@user.Email</span>
+                                <div class="__detailsbox1">
+                                    <div class="__details1">
+                                        <div class="__details11">
+                                            <span>@user.FirstName</span>
+                                            <span>@user.LastName</span>
+                                        </div>
+                                        <span>@user.Email</span>
+                                        <span>@user.PhoneNumber</span>
+                                        <span>@user.Company</span>
+                                    </div>
+                                    <div class="__details2">
+                                        <img src="~/images/users/@user.ImageUrl" alt="@user.FirstName" width="100px" height="100px" />
+                                        <p class="__smallbox"> Role: <span>@user.Role</span></p>
+                                    </div>
+                                </div>
 
-                                <span class="__smallbox">@user.PhoneNumber</span>
-                                <span class="__smallbox">@user.Company</span>
-                                <span class="__smallbox">@user.Role</span>
-                                @foreach (var address in user.Addresses)
-                                {
-                                    <span class="__smallbox">@address.StreetName</span>
-                                    <span class="__smallbox">@address.PostalCode</span>
-                                    <span class="__smallbox">@address.City</span>
-                                }>
-                                <div>
-                                    <img src="~/images/users/@user.ImageUrl" alt="@user.FirstName" width="100px" height="100px" />
+                                <div class="__detailsbox2">
+                                    @foreach (var address in user.Addresses)
+                                    {
+                                        <div class="__details3">
+                                            <span>@address.StreetName</span>
+                                        </div>
+                                        <div class="__details4">
+                                            <span>@address.PostalCode</span>
+                                            <span>@address.City</span>
+                                        </div>
+                                    }
                                 </div>
                             </div>
 
                             <div class="modal-footer">
-                                <div class="d-flex">
-                                    <button class="d-grid" type="submit" class="btn btn-success" id="submitButton">Update</button>
-                                    <button class="d-grid" type="button" data-bs-toggle="modal" data-bs-target=#deleteProduct@(@user.UserId)>Delete</button>
+                                <div class="__buttonrow">
+                                    <button type="submit" class="btn btn-success" id="submitButton">Update</button>
+                                    <button type="button" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target=#deleteProduct@(@user.UserId)>Delete</button>
                                 </div>
-                                <div class="d-flex">
-                                    <button class="d-grid" type="submit" class="btn btn-success" id="submitButton">Make Admin</button>
-                                    <button class="d-grid" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <div class="__buttonrow">
+                                    @if (@user.Role == "user")
+                                    {
+                                        <button type="submit" class="btn btn-warning" id="submitButton" onclick="MakeAdmin('@user.UserId')">Make Admin</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-warning" id="submitButton" onclick="MakeAdmin('@user.UserId')">Take Admin</button>
+                                    }                                    
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -82,6 +101,19 @@
 <script>
     async function deleteUser(userId) {
         const response = await fetch(`/delete/${userId}`, {
+            method: 'POST'
+        });
+        if (response.ok) {
+            // Reload the page to reflect the updated user list
+            location.reload();
+        } else {
+            // Handle errors
+            console.error('Error deleting user:', response.statusText);
+        }
+    }
+
+    async function MakeAdmin(userId) {
+        const response = await fetch(`/make/${userId}`, {
             method: 'POST'
         });
         if (response.ok) {

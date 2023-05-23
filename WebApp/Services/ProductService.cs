@@ -132,6 +132,7 @@ public class ProductService
                 }),
                 Categories = categories.Select(c => new ProductCategoryViewModel
                 {
+                    Id = _dataContext.ProductCategories.FirstOrDefault(pc => pc.ProductId == product.Id && pc.Category == c)?.CategoryId ?? 0,
                     Category = c.Category
                 }),
                 Tags = tags.Select(t => new ProductTagViewModel
@@ -146,6 +147,60 @@ public class ProductService
 
         return products;
     }
+
+    public async Task<IEnumerable<ProductViewModel>> GetProductsByCategoryAsync(CategoryEntity category)
+    {
+        var products = new List<ProductViewModel>();
+
+        var categoryProducts = await _dataContext.ProductCategories.Where(x => x.Category == category).Select(x => x.ProductId).ToListAsync();
+
+        var _products = await _productRepo.GetAllAsync();
+
+        foreach (var product in _products)
+        {
+            if (categoryProducts.Contains(product.Id))
+            {
+                var categories = await _dataContext.ProductCategories
+                    .Where(x => x.ProductId == product.Id)
+                    .Select(x => x.Category)
+                    .ToListAsync();
+
+                var tags = await _dataContext.ProductTags
+                    .Where(x => x.ProductId == product.Id)
+                    .Select(x => x.Tag)
+                    .ToListAsync();
+
+                var images = await _dataContext.ProductImages
+                    .Where(x => x.ProductId == product.Id)
+                    .Select(x => x.ImageUrl)
+                    .ToListAsync();
+
+                var productViewModel = new ProductViewModel
+                {
+                    ProductId = product.Id,
+                    Name = product.Name,
+                    Price = product.Price,
+                    Images = images.Select(i => new ProductImagesViewModel
+                    {
+                        ImageUrl = i!
+                    }),
+                    Categories = categories.Select(c => new ProductCategoryViewModel
+                    {
+                        Category = c.Category
+                    }),
+                    Tags = tags.Select(t => new ProductTagViewModel
+                    {
+                        Tag = t.Tag
+                    })
+                };
+
+                products.Add(productViewModel);
+            }
+        }
+
+        return products;
+    }
+
 
     //public async Task<ProductViewModel> GetProductAsync(Guid id)
     //{

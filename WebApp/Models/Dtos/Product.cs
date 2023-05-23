@@ -17,4 +17,5 @@ public class Product
     public string? Review { get; set; }
     public float Rating { get; set; }
     public Guid ProductId { get; set; }
+    public List<Product>? RelatedProducts { get; set; }
 }

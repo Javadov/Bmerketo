@@ -45,6 +45,7 @@ public class IdRepository<TEntity> where TEntity : class
         await _context.SaveChangesAsync();
         return entity;            
     }
+
     public virtual async Task<bool> DeleteAsync(TEntity entity)
     {
         try

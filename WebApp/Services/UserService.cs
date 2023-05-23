@@ -89,6 +89,22 @@ public class UserService
         return await _userRepo.DeleteAsync(user);
     }
 
+    public async Task<AppUser> UpdateUserAsync(AppUser user)
+    {
+        return await _userRepo.UpdateAsync(user);
+    }
+
+    public async Task<string> GetRolesAsync(AppUser user)
+    {
+        var roles = await _userManager.GetRolesAsync(user);
+        if (roles.Count > 0)
+        {
+            return roles[0]; // Assuming the user has a single role
+        }
+
+        return null!; 
+    }
+
     public async Task<AppUser> UploadImageAsync(AppUser user, IFormFile? image)
     {
         try

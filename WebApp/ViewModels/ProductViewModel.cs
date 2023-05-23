@@ -1,10 +1,11 @@
-﻿using WebApp.Models.Entities;
+﻿using WebApp.Models.Dtos;
+using WebApp.Models.Entities;
 
 namespace WebApp.ViewModels;
 
 public class ProductViewModel
 {
-    public Guid ProductId { get; set; } 
+    public Guid ProductId { get; set; }
     public string Name { get; set; } = null!;
     public decimal Price { get; set; }
     public string? Description { get; set; }
@@ -13,4 +14,7 @@ public class ProductViewModel
     public IEnumerable<ProductCategoryViewModel> Categories { get; set; } = null!;
     public IEnumerable<ProductTagViewModel> Tags { get; set; } = null!;
     public IEnumerable<ProductReviewViewModel> Reviews { get; set; } = null!;
+
+    public IEnumerable<ProductViewModel>? RelatedProducts { get; set; }
+    public ProductViewModel? Product { get; set; }
 }
