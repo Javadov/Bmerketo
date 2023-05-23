@@ -132,7 +132,7 @@ public class AdminController : Controller
 
         else if (roles == "admin")
         {
-            // Update the role to "Admin"
+            // Update the role to "User"
             await _userManager.RemoveFromRolesAsync(user, new[] { roles });
             var result = await _userManager.AddToRoleAsync(user, "user");
 

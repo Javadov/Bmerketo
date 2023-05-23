@@ -16,5 +16,4 @@ public class ProductViewModel
     public IEnumerable<ProductReviewViewModel> Reviews { get; set; } = null!;
 
     public IEnumerable<ProductViewModel>? RelatedProducts { get; set; }
-    public ProductViewModel? Product { get; set; }
 }

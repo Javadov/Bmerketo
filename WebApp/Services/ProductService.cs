@@ -1,6 +1,4 @@
-﻿using Amazon.EC2.Model;
-using Amazon.SimpleEmail.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebApp.Migrations.Data;
 using WebApp.Models.Contexts;
 using WebApp.Models.Dtos;

@@ -30,40 +30,49 @@
             </div>
             <div class="__productdetails">
                 <h1>@Model.Name</h1>
-                <div class="__productartnr">
-                    @foreach (var category in @Model.Categories)
-                    {
-                        <p>SKU: 12345670</p> <p>Category:@category.Id @category.Category</p>
-                    }
-                </div>                    
+
+                <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. <a href="#">(read more)</a></p>
+
+                <hr />
 
                 <h2>$ @Model.Price</h2>
-                <p>Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. <a href="#">(read more)</a></p>
-                <div class="__productsize">
-                    <h1>Size:</h1>
 
-                </div>
-                <div class="__productcolor">
-                    <h1>Color:</h1>
-
-                </div>
                 <div class="__productquantity">
                     <span>
                         <h1>Qty:</h1>
 
                     </span>
-                    <button type='submit' class='button-add-to-cart' ><span>ADD TO CART</span></button>
+                    <button type='submit' class='button-add-to-cart'><span>ADD TO CART</span></button>
                 </div>
+                
+                
                 <div class="__productshare">
-                    <h1>Share:</h1>
-                    <ul class="__shareline">
-                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                    </ul>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1"></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2"></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3"></label>
+                    </div>
+                    <div>SKU: 12345670</div>
                 </div>
+
+                <div class="__productsize">
+                    <button type='submit' class='btn'><span>Add to wishlist</span></button>
+                </div>
+                <div class="__productcolor">
+                    Category:
+                    @foreach (var category in @Model.Categories)
+                    {
+                        @category.Id @category.Category
+                    }
+                </div>
+
             </div>
         </div>
 
@@ -73,7 +82,7 @@
             <h3>Related Products</h3>
         </div>
 
-        <div class="containerx">
+@*        <div class="containerx">
             <div class="owl-carousel">
                 @foreach (var relatedProduct in Model.RelatedProducts!)
                 {
@@ -99,6 +108,7 @@
                     </div>
                 }
             </div>
-        </div>
+        </div>*@
+
     </div>
 </div>

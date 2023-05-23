@@ -17,12 +17,13 @@
                 <div class="user">
                     <div class="username">
                         <label asp-for="Name">Your Name *</label>
-                        <input asp-for="Name" />
+                        <input asp-for="Name" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="Name"></span></small>
+                        <div class="invalid-feedback">Please enter a message in the textarea.</div>
                     </div>
                     <div class="useremail">
                         <label asp-for="Email">Your Email *</label>
-                        <input asp-for="Email"  />
+                        <input asp-for="Email" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="Email"></span></small>
                     </div>
                 </div>

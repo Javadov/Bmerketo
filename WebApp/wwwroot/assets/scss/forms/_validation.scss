@@ -1,0 +1,5 @@
+﻿@import '../general/_variables.scss';
+
+@each $state, $data in $form-validation-states {
+    @include form-validation-state($state, $data...);
+}

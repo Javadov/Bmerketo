@@ -30,19 +30,18 @@ public class ProductController : Controller
 
         if (product != null)
         {
-            var category = product.Categories.Any();
+            //var category = product.Categories.Any();
 
-            var relatedProducts = await _productService.GetAllProductsAsync();
+            //var relatedProducts = await _productService.GetAllProductsAsync();
 
-            if (relatedProducts != null)
-            {
-                var viewModel = new ProductViewModel
-                {
-                    Product = product,
-                    RelatedProducts = relatedProducts
-                };
-                return View(viewModel);
-            }
+            //if (relatedProducts != null)
+            //{
+            //    var viewModel = new ProductViewModel
+            //    {
+            //        RelatedProducts = relatedProducts
+            //    };
+            //    return View(viewModel);
+            //}
 
             return View(product);
         }
