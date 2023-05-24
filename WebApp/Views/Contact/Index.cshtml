@@ -10,7 +10,7 @@
     <div class="container">
         <div class="__contactbox">
             <span>Write something</span>
-            <form id='commentForm' method="post">
+            <form id='commentForm' method="post" class="was-validated">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -19,12 +19,13 @@
                         <label asp-for="Name">Your Name *</label>
                         <input asp-for="Name" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="Name"></span></small>
-                        <div class="invalid-feedback">Please enter a message in the textarea.</div>
+                        <div class="invalid-feedback">You must enter a first name.</div>
                     </div>
                     <div class="useremail">
                         <label asp-for="Email">Your Email *</label>
                         <input asp-for="Email" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="Email"></span></small>
+                        <div class="invalid-feedback">You must enter an e-mail address.</div>
                     </div>
                 </div>
                 <div class="user">
@@ -39,8 +40,9 @@
                 </div>
                 <div class="commentbox">
                     <label asp-for="Comment">Something write *</label>
-                    <textarea asp-for="Comment"></textarea>
+                    <textarea asp-for="Comment" class="form-control is-valid" required></textarea>
                     <small class="text-danger"><span asp-validation-for="Comment"></span></small>
+                    <div class="invalid-feedback">You must enter a comment.</div>
                 </div>
                 <div class="rememberme">
                     <input asp-for="RememberMe" type="checkbox" />
@@ -53,3 +55,9 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function () {
+        $("form.needs-validation").validate();
+    });
+</script>

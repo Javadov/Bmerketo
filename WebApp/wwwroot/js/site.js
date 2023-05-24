@@ -11,7 +11,6 @@
 //    // You can use your preferred way of doing this, for example with AJAX or by submitting a form
 //});
 
-
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         items: 6, // Number of items to show at a time
@@ -40,3 +39,4 @@ $(document).ready(function () {
         }
     });
 });
+

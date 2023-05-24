@@ -7,39 +7,44 @@
     <div class="container">
         <div class="__contactbox">
             <span>Please Register Your new Account</span>
-            <form id='registerForm' enctype="multipart/form-data" method="post">
+            <form id='registerForm' enctype="multipart/form-data" method="post" class="was-validated">
 
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="__input">
                     <div class="userdetails">
                         <label asp-for="FirstName">First Name *</label>
-                        <input asp-for="FirstName" />
+                        <input asp-for="FirstName" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="FirstName"></span></small>
+                        <div class="invalid-feedback">You must enter a first name.</div>
                     </div>
                     <div class="userdetails">
                         <label asp-for="LastName">Last Name *</label>
-                        <input asp-for="LastName" />
+                        <input asp-for="LastName" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="LastName"></span></small>
+                        <div class="invalid-feedback">You must enter a last name.</div>
                     </div>
                 </div>
 
                 <div class="userdetails">
                     <label asp-for="StreetName">Street Name *</label>
-                    <input asp-for="StreetName" />
+                    <input asp-for="StreetName" class="form-control is-valid" required />
                     <small class="text-danger"><span asp-validation-for="StreetName"></span></small>
+                    <div class="invalid-feedback">You must enter a street name.</div>
                 </div>
 
                 <div class="__input">
                     <div class="userdetails">
                         <label asp-for="PostalCode">Postal Code *</label>
-                        <input asp-for="PostalCode" />
+                        <input asp-for="PostalCode" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="PostalCode"></span></small>
+                        <div class="invalid-feedback">You must enter a postal code.</div>
                     </div>
                     <div class="userdetails">
                         <label asp-for="City">City *</label>
-                        <input asp-for="City" />
+                        <input asp-for="City" class="form-control is-valid" required />
                         <small class="text-danger"><span asp-validation-for="City"></span></small>
+                        <div class="invalid-feedback">You must enter a city.</div>
                     </div>
                 </div>
 
@@ -56,20 +61,23 @@
 
                 <div class="userdetails">
                     <label asp-for="Email">Email *</label>
-                    <input asp-for="Email" />
+                    <input asp-for="Email" class="form-control is-valid" required />
                     <small class="text-danger"><span asp-validation-for="Email"></span></small>
+                    <div class="invalid-feedback">You must enter an e-mail address.</div>
                 </div>
 
                 <div class="userdetails">
                     <label asp-for="Password">Password *</label>
-                    <input asp-for="Password" />
+                    <input asp-for="Password" class="form-control is-valid" required />
                     <small class="text-danger"><span asp-validation-for="Password"></span></small>
+                    <div class="invalid-feedback">You must enter a password.</div>
                 </div>
 
                 <div class="userdetails">
                     <label asp-for="ConfirmPassword">Confirm Password *</label>
-                    <input asp-for="ConfirmPassword" />
+                    <input asp-for="ConfirmPassword" class="form-control is-valid" required />
                     <small class="text-danger"><span asp-validation-for="ConfirmPassword"></span></small>
+                    <div class="invalid-feedback">You must confirm your password.</div>
                 </div>
 
                 <div class="userdetails">
@@ -78,12 +86,13 @@
                 </div>
 
                 <div class="rememberme">
-                    <input asp-for="TermsAndAgreements" type="checkbox" />
+                    <input asp-for="TermsAndAgreements" type="checkbox" class="form-check-input" required />
                     <label asp-for="TermsAndAgreements">I have read and accepts the terms and agreements</label>
                 </div>
 
                 <div>
                     <button class="button-red" type="submit"><span>Submit</span></button>
+                    <div class="invalid-feedback">I have read and accepts the user terms and agreements.</div>
                 </div>
             </form>
         </div>
