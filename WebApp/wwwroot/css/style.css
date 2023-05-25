@@ -662,6 +662,17 @@ html, body {
 .__collection > .container .filter-container {
   padding: 0;
 }
+.__collection > .container #load-more {
+  margin-top: 40px;
+  width: 186px;
+  height: 47px;
+  border: 1px solid black;
+  background: none;
+}
+.__collection > .container #load-more i {
+  margin-left: 5px;
+  font-size: 0.8125rem;
+}
 
 .__card {
   display: flex;

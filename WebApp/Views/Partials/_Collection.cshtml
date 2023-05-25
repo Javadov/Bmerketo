@@ -1,72 +1,27 @@
 ﻿@model List<ProductViewModel>
 
-@{
-    // Set default number of products to display
-    var productsToDisplay = 8;
-}
-
-
-
 <section class="__collection">
     <div class="container">
         <h3>Best Collection</h3>
-        <ul>
-            <li onClick={handleFilterKeyChange("*")}>All</li>  ⁄
-            <li onClick={handleFilterKeyChange("Bags")}>Bags</li>  ⁄
-            <li onClick={handleFilterKeyChange("Watchs")}>Dress</li>  ⁄
-            <li onClick={handleFilterKeyChange("Dresses")}>Decoration</li>  ⁄
-            <li onClick={handleFilterKeyChange("Sets")}>Essentials</li>  ⁄
-            <li onClick={handleFilterKeyChange("Jackets")}>Interior</li>  ⁄
-            <li onClick={handleFilterKeyChange("T-shirts")}>Laptop</li>  ⁄
-            <li onClick={handleFilterKeyChange("vege")}>Mobile</li>  ⁄
-            <li onClick={handleFilterKeyChange("fruit")}>Beauty</li>
+        <ul class="isotope">
+            <li data-filter="*">All</li>  ⁄
+            <li data-filter="Bags">Bags</li>  ⁄
+            <li data-filter="Dress">Dress</li>  ⁄
+            <li data-filter="Decoration">Decoration</li>  ⁄
+            <li data-filter="Essentials">Essentials</li>  ⁄
+            <li data-filter="Interior">Interior</li>  ⁄
+            <li data-filter="Laptop">Laptop</li>  ⁄
+            <li data-filter="Mobile">Mobile</li>  ⁄
+            <li data-filter="Beauty">Beauty</li>  ⁄
         </ul>
 
-        <ul class="filter-container products">
-           @* <partial name="/Views/Partials/_ProductCard.cshtml" />*@
-
-            @foreach (var product in Model.Take(productsToDisplay))
-            {
-                <div class="__card">
-                    <div class="card-img">
-                        @if (product.Images.Any())
-                        {
-                            <img src="~/images/products/@product.Images.First().ImageUrl" class="product-image" alt="@product.Name" />
-                        }
-                        <div class="card-menu">
-                            <button onClick={addToWishList} class="__menulink"><i class="fa-regular fa-basket-shopping"></i></button>
-                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-heart"></i></button>
-                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-eye"></i></button>
-                            <button onClick={addToCompare} class="__menulink"><i class="fa-regular fa-expand"></i></button>
-                        </div>
-                    </div>
-                    <div class="__card-body">
-                        <a asp-controller="product" asp-action="index" asp-route-articlenumber="@product.ProductId" class="button-quick-view">
-                            @product.Name
-                        </a>
-                        <h5 class="product-price"><span> </span> @product.Price</h5>
-                    </div>
-                </div>
-            }
-        </ul>
+        <div class="filter-container products">
+            <partial name="/Views/Partials/_ProductCard.cshtml" />
+        </div>
 
         <div>
-            <button id="load-more">Load More</button>
+            <button id="load-more">LOAD MORE<i class="fa-sharp fa-solid fa-rotate-right"></i></button>
         </div>
 
     </div>
 </section>
-
-<script>
-    // Get a reference to the Load More button
-    var loadMoreButton = document.getElementById("load-more");
-
-    // Attach a click event listener to the Load More button
-    loadMoreButton.addEventListener("click", function () {
-        // Increment the number of products to display
-        productsToDisplay += 4;
-
-        // Re-render the products with the updated number of products to display
-        // You can use your preferred way of doing this, for example with AJAX or by submitting a form
-    });
-</script>

@@ -25,13 +25,14 @@ namespace WebApp.Controllers
             return View(products);
         }
 
-        public async Task<IActionResult> LoadMoreProducts(int skip, int take = 8)
+        public async Task<IActionResult> LoadMoreProducts(int productsToDisplay)
         {
             // Load the products with the specified skip and take values
             var products = await _productService.GetAllProductsAsync();
 
+            var model = products.Take(productsToDisplay);
             // Return a partial view with the updated list of products
-            return PartialView("_ProductCard", products);
+            return PartialView("_ProductCard", model);
         }
 
         public IActionResult Privacy()
