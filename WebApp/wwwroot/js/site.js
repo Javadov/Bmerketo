@@ -11,6 +11,35 @@
 //    // You can use your preferred way of doing this, for example with AJAX or by submitting a form
 //});
 
+//function footerPosition(element, scrollHeight, innerHeight) {
+//    try {
+//        const _element = document.querSelector(element)
+//        const isTallerThanScreen = scrollHeight >= innerHeight
+
+//        _element.classList.footer('position-fixed-bottom', !isTallerThanScreen)
+//        _element.classList.footer('position-static', isTallerThanScreen)
+
+
+//        console.log(element, scrollHeight, innerHeight)
+
+//    } catch { }
+
+//}
+
+const footer = document.querySelector('footer')
+//console.log("footers totala höjd: " + footer.scrollHeight)
+//console.log("Hemsidans totala höjd: " + document.body.scrollHeight)
+
+if (document.body.scrollHeight >= window.innerHeight)
+{
+    footer.classList.remove('position')
+}
+else
+{
+    footer.classList.add('position')
+}
+
+
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         items: 6, // Number of items to show at a time
